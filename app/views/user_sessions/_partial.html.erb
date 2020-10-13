@@ -1,0 +1,12 @@
+<%= form_with method: 'post', url: user_sessions_path, local: true do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :username %>
+    <%= form.text_field :username %>
+  </div>
+    <%= form.submit 'Sign in'%>
+<% end %>
