@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  validates :username, presence: true, length: { minimum: 10 }, uniqueness: true
-  validates :fullname, presence: true
+  validates :username, presence: true, length: { minimum: 4 }, uniqueness: true
+  validates :fullname, presence: true, length: { minimum: 7 }
 
   has_many :opinions
 
