@@ -7,4 +7,9 @@ RSpec.describe Following, type: :model do
       expect(association.macro).to eq(:belongs_to)
     end
   end
+  context '#Validations' do
+    it 'Following is valid with 2 users' do
+      expect(user.opinions.build(body: 'body text')).to be_valid
+    end
+  end
 end
