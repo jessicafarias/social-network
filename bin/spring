@@ -6,6 +6,8 @@
 unless defined?(Spring)
   require 'rubygems'
   require 'bundler'
+  require 'hirb'
+  puts 'Testing in console'
 
   lockfile = Bundler::LockfileParser.new(Bundler.default_lockfile.read)
   spring = lockfile.specs.detect { |spec| spec.name == 'spring' }
@@ -14,4 +16,5 @@ unless defined?(Spring)
     gem 'spring', spring.version
     require 'spring/binstub'
   end
+  
 end
