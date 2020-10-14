@@ -2,7 +2,14 @@ body{
   font-family: 'YuFont',Arial, Helvetica, sans-serif;
   font-size: normal;
   font-weight: bold;
+  background-color: #F4F5F7;
 }
+
+p {
+  display:flex;
+  align-items: center;
+}
+
 .link-blue{
   color: rgb(29, 161, 242);
 }
@@ -57,4 +64,21 @@ input[type=password] {
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+
+
+.bgc-blue{
+  background-color: #52A3E2;
+}
+
+.bgc-header{
+  background-color: #498ca8;
+  min-height: 30vh;
+  color: white;
+  font-size: 3em;
+  text-align: center;
+}
+
+.bgc-yellow{
+  background-color: yellow;
 }

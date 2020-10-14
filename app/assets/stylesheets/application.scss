@@ -11,7 +11,32 @@
  * It is generally better to create a new file per style scope.
  *
  */
- @import "bootstrap";
- @import "Login";
- @import "fonts";
+@import "bootstrap";
+@import "reset";
+@import "Login";
+@import "fonts";
+
+
+.left-menu{
+  background-color: #213246;
+  .img{
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+  }
+  p{
+    color: #eeeeee;
+  }
+  .btn-left{
+    height: 50px;
+  }
+  .btn-left:hover{
+    background-color: #1B2A3D;
+  }
+}
+
+.bgc-bluer {
+  background-color: #1B2A3D;
+  height: 30vh;
+}
 

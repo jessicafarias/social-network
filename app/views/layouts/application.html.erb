@@ -4,12 +4,65 @@
     <title>SocialNetwork</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="container-fluid">
+    <div class="row bgc-header">
+      <p class="m-auto">USER PAGE</p>
+    </div>
+
+
+    <div class="row">
+      <div class="col-3 w-100 left-menu">
+        <!--SIDE-->
+        <div class="row bgc-bluer">
+          <!--CURRENT USER_NAME-->
+          <div class ="d-flex justify-content-around align-items-center w-100">
+            <%= link_to image_tag('talky.png', alt: 'Logo', class: 'img'), users_path %>
+            <p>CURRENT_USER.NAME</p>
+          </div>
+          
+          <!--FOLLOWIN COUNT-->
+          <div class ="row d-flex justify-content-around align-items-center mt-4 w-100">
+            <div class="d-flex flex-column align-items-center">
+              <p>250</p>
+              <p>Following</p>
+            </div>
+            <div class="d-flex flex-column align-items-center">
+              <p>250</p>
+              <p>Followers</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          
+            <p class="btn-left w-100">Hello</p>
+            <p class= "btn-left w-100">Hello</p>
+          
+        </div>
+      </div>
+
+
+      <div class="col-9"> 
+        <nav class="row bgc-blue">
+          <div class= "d-flex justify-content-around">
+            <div>
+              <%= link_to image_tag('talky.png', alt: 'Logo', class: 'w-50 m-4 p-4'), users_path %>
+            </div>
+            <div>
+              <%= link_to image_tag('talky.png', alt: 'Logo', class: 'w-50 m-4 p-4'), users_path %>
+            </div>
+          </div>
+        </nav>
+        <section class="row">
+          <%= yield %>
+        </section>
+      </div>
+    </div>
+    <footer class="row bgc-blue">
+        <h2>Hello</h2>
+    </footer>
   </body>
 </html>
