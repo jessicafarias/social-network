@@ -15,4 +15,10 @@ module UserSessionsHelper
       true
     end
   end
+
+  def authenticate_user!
+      unless current_user?
+        format.html { redirect_to login_path, notice: 'Please Loged In' }
+      end
+  end
 end

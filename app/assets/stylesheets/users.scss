@@ -1,10 +1,12 @@
 $blue : rgb(35, 110, 172);
-.portada{
+
+.portada {
   height: 30vh;
   width: 100%;
   margin: 0;
 }
-.cover{
+
+.cover {
   object-fit: cover;
   object-position: center center;
   max-height: 30vh;
@@ -12,64 +14,68 @@ $blue : rgb(35, 110, 172);
   width: 100%;
 }
 
-.goto{
+.goto {
   display: flex;
   flex-direction: row;
   border-bottom: medium solid rgba(35, 110, 172, 0);
 
-  .link{
+  .link {
     padding: 20px;
     color: gray;
   }
+
   .link:hover {
     color: black;
     text-decoration: none;
   }
 
-  a{
-    height: 100%;;
+  a {
+    height: 100%;
     border-bottom: medium solid rgba(35, 110, 172, 0);
     cursor: pointer;
     text-decoration: none;
   }
-  a:hover{
+
+  a:hover {
     border-bottom: medium solid $blue;
   }
-
 }
 
-.right{
-  .fill-white{
+.right {
+  .fill-white {
     color: gray;
   }
-  .fill-white:hover{
+
+  .fill-white:hover {
     color: $blue;
   }
 }
 
-.talk{
+.talk {
   background-color: white;
   margin: 3em;
 
-  .image{
+  .image {
     width: 50px;
     height: 50px;
   }
-  .user{
-    font-size: 25x;
+
+  .user {
+    font-size: 25px;
     font-weight: bold;
-    cursor:default;
+    cursor: default;
   }
-  .opinion{
+
+  .opinion {
     font-size: 16px;
     color: grey;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: 100;
-    cursor:default;
+    cursor: default;
   }
 }
 
-textarea{
+textarea {
   width: 100%;
   border-color: rgb(197, 194, 194);
   padding: 10px;
