@@ -22,6 +22,15 @@
       </div>
       <!--TWEETS-->
       <div class="row">
+      <% if current_user? %>
+        <%= render 'talk', opinion: @opinion %>
+      <% end %>
+
+        <% @users.each do |user| %>
+          <%= user.username %>
+          <%= user.fullname %>
+          <%= link_to 'Show', user %>
+        <% end %>
       </div>
     </div>
     <!--FOLLOWED BY-->
@@ -48,12 +57,5 @@
     </div>
   </div>
 </div>
-<% @users.each do |user| %>
-    <%= user.username %>
-    <%= user.fullname %>
-    <%= link_to 'Show', user %>
-<% end %>
 
-<br>
-<br>
-<%= link_to 'New User', new_user_path %>
+

@@ -8,7 +8,7 @@ class UserSessionsController < ApplicationController
       flash.now.alert = 'Login failed.'
       render action: :new
     else
-      session[:name] = user.name
+      session[:name] = user.fullname
       session[:username] = user.username
       redirect_to(:users, notice: 'Sign In Succesful.')
     end

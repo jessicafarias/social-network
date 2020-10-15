@@ -5,6 +5,8 @@ class OpinionsController < ApplicationController
   # GET /opinions.json
   def index
     @opinions = Opinion.all
+    @opinion = Opinion.new
+    @users = User.all
   end
 
   # GET /opinions/1

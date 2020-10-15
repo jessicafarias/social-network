@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    @opinion = Opinion.new
   end
 
   # GET /users/1

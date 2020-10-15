@@ -1,23 +1,73 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Opinions</h1>
+<div class="container-fluid">
+  <div class="row">
+    <!--PEOPLE-->
+    <div class="col-9">
+      <!--MENU GOTO WHITE-->
+      <div class="row">
+        <ul class="goto m-3">
+          <li>
+            <%= link_to  "OPINION", users_path, class: 'link' %>
+          </li>
+          <li>
+            <%= link_to  "PHOTOS", users_path, class: 'link'%>
+          </li>
+          <li>
+            <%= link_to  "FOLLOWING", users_path, class: 'link' %>
+          </li>
+          <li>
+            <%= link_to  "MORE", users_path, class: 'link'%>
+          </li>
+        </ul>
+      </div>
+      <!--TWEETS-->
+      <div class="row">
+        <% if current_user? %>
+          <%= render 'talk', opinion: @opinion %>
+        <% end %>
 
+      </div>
+      <div class="row">
+        <div class= "talk">
+          <%= image_tag('talky.png', alt: 'talkey', class: 'img') %>
+          <% @opinions.each do |opinion| %>
+            <div class="d-flex flex-row">
+              <p><%= opinion.user.username %></p>
+              <p><%= opinion.body %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <!--FOLLOWED BY-->
+    <div class="col-3">
+      <!--WHO TO FOLLOW TAG-->
+      <div class="row mt-4">
+        <p>WHO TO FOLLOW</p>
+      </div>
 
+      <!--FOLLOWEB PROFILE-->
+      <% @users.each do |user| %>
+        <div class="row mt-3">
+          <%= image_tag('talky.png', alt: 'talkey', class: 'col-3') %>
+          <div class="col-6">
+            <p><%= user.fullname %></p>
+            <p><%= user.username %></p>
+          </div>
+          <div class="col-3 m-auto">
+                <i class="fa fa-2x fa-plus-circle fill-white"></i>
+            </div>
+        </div>
+      <% end %>
 
-<table>
-  <tbody>
-    <% @opinions.each do |opinion| %>
-      <tr>
-        <td><%= opinion.body %></td>
-        <td><%= opinion.user_id %></td>
-        <td><%= link_to 'Show', opinion %></td>
-        <td><%= link_to 'Edit', edit_opinion_path(opinion) %></td>
-        <td><%= link_to 'Destroy', opinion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Opinion', new_opinion_path %>
+    </div>
+  </div>
+</div>
+        <% @opinions.each do |opinion| %>
+            <%= opinion.body %>
+            <%= opinion.user_id %>
+            <%= link_to 'Show', opinion %>
+            <%= link_to 'Edit', edit_opinion_path(opinion) %>
+            <%= link_to 'Destroy', opinion, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
