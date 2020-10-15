@@ -10,14 +10,16 @@
       </ul>
     </div>
   <% end %>
-<div class="talkey">
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
-  </div>
+<div class="talk ">
+    <div class="d-flex bd-highlight align-items-center p-4">
+      <div class="bd-highlight w-100">
+        <%= form.label :body %>
+        <%= form.text_area :body, class: " bd-highlight" %>
+      </div>
 
-  <div class="actions">
-    <%= form.submit 'Talkey' %>
+      <div class="actions flex-shrink">
+        <%= form.submit 'Talkey', class: "btn-blue w-100" %>
+      </div>
+    </div>
   </div>
-</div>
 <% end %>

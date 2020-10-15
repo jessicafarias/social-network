@@ -46,3 +46,31 @@ $blue : rgb(35, 110, 172);
     color: $blue;
   }
 }
+
+.talk{
+  background-color: white;
+  margin: 3em;
+
+  .image{
+    width: 50px;
+    height: 50px;
+  }
+  .user{
+    font-size: 25x;
+    font-weight: bold;
+    cursor:default;
+  }
+  .opinion{
+    font-size: 16px;
+    color: grey;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 100;
+    cursor:default;
+  }
+}
+
+textarea{
+  width: 100%;
+  border-color: rgb(197, 194, 194);
+  padding: 10px;
+}

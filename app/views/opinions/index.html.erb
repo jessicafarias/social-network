@@ -24,19 +24,25 @@
       <!--TWEETS-->
       <div class="row">
         <% if current_user? %>
-          <%= render 'talk', opinion: @opinion %>
+          <div class="col-12">
+            <%= render 'talk', opinion: @opinion %>
+          </div>
         <% end %>
-
       </div>
+
       <div class="row">
-        <div class= "talk">
-          <%= image_tag('talky.png', alt: 'talkey', class: 'img') %>
-          <% @opinions.each do |opinion| %>
-            <div class="d-flex flex-row">
-              <p><%= opinion.user.username %></p>
-              <p><%= opinion.body %></p>
-            </div>
-          <% end %>
+        <div class= "col-12">
+          <div class="talk d-flex flex-row">
+            <% @opinions.each do |opinion| %>
+              <div class="d-flex flex-row">
+                <%= image_tag('talky.png', alt: 'talkey', class: 'image m-4') %>
+                <div class="d-flex flex-column justify-content-center">
+                  <p class="user">@<%= opinion.user.username %></p>
+                  <p class="opinion"><%= opinion.body %></p>
+                </div>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
@@ -55,19 +61,16 @@
             <p><%= user.fullname %></p>
             <p><%= user.username %></p>
           </div>
-          <div class="col-3 m-auto">
-                <i class="fa fa-2x fa-plus-circle fill-white"></i>
-            </div>
+          <%= link_to edit_user_path(user) do %>
+              <i class="fa fa-2x fa-plus-circle fill-white m-3"></i>
+          <% end %>
         </div>
       <% end %>
 
     </div>
   </div>
 </div>
-        <% @opinions.each do |opinion| %>
-            <%= opinion.body %>
-            <%= opinion.user_id %>
-            <%= link_to 'Show', opinion %>
-            <%= link_to 'Edit', edit_opinion_path(opinion) %>
-            <%= link_to 'Destroy', opinion, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
+
+    <%#= link_to 'Show', opinion %>
+    <%#= link_to 'Edit', edit_opinion_path(opinion) %>
+    <%#= link_to 'Destroy', opinion, method: :delete, data: { confirm: 'Are you sure?' } %>
