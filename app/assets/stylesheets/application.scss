@@ -18,10 +18,17 @@
 @import "fonts";
 @import "users";
 
+body{
+  font-family: 'YuFont',Arial, Helvetica, sans-serif;
+  font-size: normal;
+  font-weight: bold;
+  background-color: #F4F5F7;
+}
 
 .left-menu{
   background-color: #213246;
   font-size: small;
+  min-height: 100vh;
   .img{
       width: 60px;
       height: 60px;
@@ -30,9 +37,15 @@
   p{
     color: #eeeeee;
   }
+  a{
+    text-decoration: none;
+  }
 
   .btn-left{
     height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     padding-left: 20px;
     padding-right: 20px;
     
@@ -64,5 +77,31 @@
   }
   .fill-blue:hover{
     color: #f5f5f5;
+  }
+}
+
+.fill-gray{
+  color: rgb(199, 195, 187);
+}
+
+.fill-gray:hover{
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+footer{
+  background-color: #191919;
+  .title{
+    color: white;
+    font-size: 30px;
+  }
+  .subtitle{
+    color: gray;
+    font-size: small;
+  }
+
+  .images{
+    max-width: 100px;
+    min-width: 50px;
   }
 }

@@ -1,20 +1,59 @@
 <p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <div class="row">
+    <!--PEOPLE-->
+    <div class="col-9">
+      <!--MENU GOTO WHITE-->
+      <div class="row">
+        <ul class="goto m-3">
+          <li>
+            <%= link_to  "OPINION", users_path, class: 'link' %>
+          </li>
+          <li>
+            <%= link_to  "PHOTOS", users_path, class: 'link'%>
+          </li>
+          <li>
+            <%= link_to  "FOLLOWING", users_path, class: 'link' %>
+          </li>
+          <li>
+            <%= link_to  "MORE", users_path, class: 'link'%>
+          </li>
+        </ul>
+      </div>
+      <!--TWEETS-->
+      <div class="row">
+      </div>
+    </div>
+    <!--FOLLOWED BY-->
+    <div class="col-3">
+      <!--WHO TO FOLLOW TAG-->
+      <div class="row mt-4">
+        <p>WHO TO FOLLOW</p>
+      </div>
 
-<table>
+      <!--FOLLOWEB PROFILE-->
+      <% @users.each do |user| %>
+        <div class="row mt-3">
+          <%= image_tag('talky.png', alt: 'talkey', class: 'col-3') %>
+          <div class="col-6">
+            <p><%= user.fullname %></p>
+            <p><%= user.username %></p>
+          </div>
+          <div class="col-3 m-auto">
+                <i class="fa fa-2x fa-plus-circle fill-white"></i>
+            </div>
+        </div>
+      <% end %>
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.username %></td>
-        <td><%= user.fullname %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    </div>
+  </div>
+</div>
+<% @users.each do |user| %>
+    <%= user.username %>
+    <%= user.fullname %>
+    <%= link_to 'Show', user %>
+<% end %>
 
 <br>
-
+<br>
 <%= link_to 'New User', new_user_path %>

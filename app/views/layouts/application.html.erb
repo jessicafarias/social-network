@@ -32,24 +32,33 @@
           </div>
         </div>
         <!--BUTTONS LEFT-->
-        <div class="row">
-            <p class="btn-left w-100">* HOME</p>
-            <p class= "btn-left w-100">* CONNECT</p>
-            <p class= "btn-left w-100">* OPINIONS</p>
-          
+        <div class="row right">
+          <%= link_to users_path, class: 'btn-left w-100' do %>
+            <i class="fa fa-sm fa-home fill-gray mr-2"></i><p> HOME</p>
+          <% end %>
+          <%= link_to users_path, class: 'btn-left w-100' do %>
+            <i class="fa fa-sm fa-at fill-gray mr-2"></i><p> CONNECT</p>
+          <% end %>
+          <%= link_to users_path, class: 'btn-left w-100' do %>
+            <i class="fa fa-sm fa-hashtag fill-gray mr-2"></i><p> DISCOVER</p>
+          <% end %>
+          <%= link_to users_path, class: 'btn-left w-100' do %>
+              <i class="fa fa-sm fa-user fill-gray mr-2"></i><p> PROFILE</p>
+          <% end %>
         </div>
       </div>
 
 
       <div class="col-10"> 
+      <!--NAVBAR BLUE-->
         <nav class="row nav">
           <div class="col-12">
             <div class= "d-flex justify-content-between align-items-center">
-              <div class = "">
+              <div class = "m-2">
                 <%= link_to image_tag('talkyw.png', alt: 'Logo', class: 'icon'), users_path %>
               </div>
               <div class="">
-              <%= link_to users_path, class: 'level-item mr-5' do %>
+                <%= link_to users_path, class: 'level-item mr-5' do %>
                   <i class="fa fa-sm fa-pencil fill-blue"></i>
                 <% end %>
                 <%= link_to users_path, class: 'level-item mr-5' do %>
@@ -72,8 +81,15 @@
         </section>
       </div>
     </div>
-    <footer class="row bgc-blue">
-        <h2>Hello</h2>
+    <footer class="row">
+    <div class="col-12 mt-4">
+      <div class="d-flex flex-column align-items-center">
+        <%= link_to image_tag('talky.png', alt: 'Logo', class: 'img'), users_path %> <br>
+        <p class="title"> Talkey social media</p><br>
+        <p class="subtitle"> Published: 12 de octubre del 2020</p><br>
+        <p>Ing. Jessica Michelle farías rosado</p>
+      </div>
+    </div>
     </footer>
   </body>
 </html>

@@ -3,19 +3,17 @@
 
 <div class="container-fluid">
   <div class="row">
-
-
     <!--IMAGES AND TWEETS-->
     <div class="col-9">
-
       <!--IMAGES-->
-      <div class="row">
-        <%= image_tag('catrina3.jpg', alt: 'catrina1', class: 'cover w-100') %>
+      <div class="row ">
+        <div class="portada ">
+          <%= image_tag('catrina1.jpg', alt: 'catrina1', class: 'cover w-100') %>
+        </div>
       </div>
-
-      <!--MENU-->
+      <!--MENU GOTO WHITE-->
       <div class="row">
-        <ul class="goto">
+        <ul class="goto m-3">
           <li>
             <%= link_to  "OPINION", users_path, class: 'link' %>
           </li>
@@ -26,31 +24,72 @@
             <%= link_to  "FOLLOWING", users_path, class: 'link' %>
           </li>
           <li>
-            <%= link_to  "MORE", users_path %>
+            <%= link_to  "MORE", users_path, class: 'link'%>
           </li>
         </ul>
       </div>
       <!--TWEETS-->
       <div class="row">
-        <%= image_tag('catrina3.jpg', alt: 'catrina1', class: 'cover') %>
       </div>
     </div>
-
-
     <!--FOLLOWED BY-->
     <div class="col-3">
+      <!-- PROFILE CHANGE PICTURE-->
+      <div class="row right mt-4">
+        <div class="d-flex align-items-center justify-content-around m-auto">
+          <%= link_to edit_user_path(@user) do %>
+              <i class="fa fa-2x fa-plus-circle fill-white m-3"></i>
+          <% end %>
+          <%= image_tag('talky.png', alt: 'userprofile', class: '') %>
+          <%= link_to edit_user_path(@user) do %>
+              <i class="fa fa-2x fa-gg-circle fill-white m-3"></i>
+          <% end %>
+        </div>
+      </div>
+
+      <!--USERNAME DATA-->
+      <div class="row mt-4">
+        <div class="d-flex flex-column align-items-center m-auto">
+          <p><%= @user.fullname %></p>
+          <p><%= @user.username %></p>
+        </div>
+      </div>
+
+      <!--PROFILE COUNT FOLLOWERS-->
+      <div class="row mt-4">
+        <div class="col-4">
+          <p>256</p>
+          <p>Tweets</p>
+        </div>
+        <div class="col-4">
+          <p>256</p>
+          <p>Tweets</p>
+        </div>
+        <div class="col-4">
+          <p>256</p>
+          <p>Tweets</p>
+        </div>
+      </div>
+
+      <!--FOLLOWEB BY TAG-->
+      <div class="row mt-4">
+        <p>FOLLOWED BY</p>
+      </div>
+
+      <!--FOLLOWEB PROFILE-->
+      <% [1,2,3,5,6,6].each do |item| %>
+        <div class="row mt-3">
+          <%= image_tag('talky.png', alt: 'talkey', class: 'col-3') %>
+          <div class="col-6">
+            <p>FriendName</p>
+            <p>@username</p>
+          </div>
+          <div class="col-3 m-auto">
+                <i class="fa fa-2x fa-plus-circle fill-white"></i>
+            </div>
+        </div>
+      <% end %>
+
     </div>
   </div>
 </div>
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
-
-<p>
-  <strong>Fullname:</strong>
-  <%= @user.fullname %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
