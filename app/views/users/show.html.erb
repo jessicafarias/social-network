@@ -1,5 +1,47 @@
 <p id="notice"><%= notice %></p>
 
+
+<div class="container-fluid">
+  <div class="row">
+
+
+    <!--IMAGES AND TWEETS-->
+    <div class="col-9">
+
+      <!--IMAGES-->
+      <div class="row">
+        <%= image_tag('catrina3.jpg', alt: 'catrina1', class: 'cover w-100') %>
+      </div>
+
+      <!--MENU-->
+      <div class="row">
+        <ul class="goto">
+          <li>
+            <%= link_to  "OPINION", users_path, class: 'link' %>
+          </li>
+          <li>
+            <%= link_to  "PHOTOS", users_path, class: 'link'%>
+          </li>
+          <li>
+            <%= link_to  "FOLLOWING", users_path, class: 'link' %>
+          </li>
+          <li>
+            <%= link_to  "MORE", users_path %>
+          </li>
+        </ul>
+      </div>
+      <!--TWEETS-->
+      <div class="row">
+        <%= image_tag('catrina3.jpg', alt: 'catrina1', class: 'cover') %>
+      </div>
+    </div>
+
+
+    <!--FOLLOWED BY-->
+    <div class="col-3">
+    </div>
+  </div>
+</div>
 <p>
   <strong>Username:</strong>
   <%= @user.username %>

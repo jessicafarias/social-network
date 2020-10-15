@@ -12,13 +12,16 @@
  *
  */
 @import "bootstrap";
+@import "font-awesome";
 @import "reset";
 @import "Login";
 @import "fonts";
+@import "users";
 
 
 .left-menu{
   background-color: #213246;
+  font-size: small;
   .img{
       width: 60px;
       height: 60px;
@@ -27,8 +30,12 @@
   p{
     color: #eeeeee;
   }
+
   .btn-left{
     height: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    
   }
   .btn-left:hover{
     background-color: #1B2A3D;
@@ -38,5 +45,24 @@
 .bgc-bluer {
   background-color: #1B2A3D;
   height: 30vh;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
+
+.nav{
+  background-color: #52A3E2;
+  
+  .icon{
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    object-fit: contain;
+  }
+  .fill-blue{
+    color: #376F94;
+  }
+  .fill-blue:hover{
+    color: #f5f5f5;
+  }
+}

@@ -1,0 +1,24 @@
+.portada{
+  height: 50vh;
+  width: 100%;
+  margin: 0;
+}
+.cover{
+  object-fit: cover;
+  object-position: center center;
+  max-height: 30vh;
+  margin: 0;
+  width: 100%;
+}
+
+.goto{
+  display: flex;
+  flex-direction: row;
+
+  .link{
+    padding: 20px;
+  }
+  .link:hover {
+    border-bottom: medium solid blue;
+  }
+}

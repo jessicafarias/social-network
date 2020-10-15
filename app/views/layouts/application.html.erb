@@ -9,19 +9,14 @@
   </head>
 
   <body class="container-fluid">
-    <div class="row bgc-header">
-      <p class="m-auto">USER PAGE</p>
-    </div>
-
-
     <div class="row">
-      <div class="col-3 w-100 left-menu">
+      <div class="col-2 w-100 left-menu">
         <!--SIDE-->
         <div class="row bgc-bluer">
           <!--CURRENT USER_NAME-->
-          <div class ="d-flex justify-content-around align-items-center w-100">
+          <div class ="d-flex justify-content-between align-items-center w-100">
             <%= link_to image_tag('talky.png', alt: 'Logo', class: 'img'), users_path %>
-            <p>CURRENT_USER.NAME</p>
+            <p>FULL USER_NAME</p>
           </div>
           
           <!--FOLLOWIN COUNT-->
@@ -36,23 +31,39 @@
             </div>
           </div>
         </div>
+        <!--BUTTONS LEFT-->
         <div class="row">
-          
-            <p class="btn-left w-100">Hello</p>
-            <p class= "btn-left w-100">Hello</p>
+            <p class="btn-left w-100">* HOME</p>
+            <p class= "btn-left w-100">* CONNECT</p>
+            <p class= "btn-left w-100">* OPINIONS</p>
           
         </div>
       </div>
 
 
-      <div class="col-9"> 
-        <nav class="row bgc-blue">
-          <div class= "d-flex justify-content-around">
-            <div>
-              <%= link_to image_tag('talky.png', alt: 'Logo', class: 'w-50 m-4 p-4'), users_path %>
-            </div>
-            <div>
-              <%= link_to image_tag('talky.png', alt: 'Logo', class: 'w-50 m-4 p-4'), users_path %>
+      <div class="col-10"> 
+        <nav class="row nav">
+          <div class="col-12">
+            <div class= "d-flex justify-content-between align-items-center">
+              <div class = "">
+                <%= link_to image_tag('talkyw.png', alt: 'Logo', class: 'icon'), users_path %>
+              </div>
+              <div class="">
+              <%= link_to users_path, class: 'level-item mr-5' do %>
+                  <i class="fa fa-sm fa-pencil fill-blue"></i>
+                <% end %>
+                <%= link_to users_path, class: 'level-item mr-5' do %>
+                  <i class="fa fa-sm fa-envelope fill-blue"></i>
+                <% end %>
+                  <%= link_to users_path, class: 'level-item mr-5' do %>
+                  <i class="fa fa-sm fa-search fill-blue"></i>
+                <% end %>
+                  <%= link_to users_path, class: 'level-item mr-2' do %>
+                  <i class="fa fa-sm fa-cog fill-blue"></i>
+                <% end %>
+
+                
+              </div>
             </div>
           </div>
         </nav>
