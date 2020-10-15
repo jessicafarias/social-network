@@ -1,5 +1,28 @@
-<h1>New Opinion</h1>
+<!--MENU GOTO WHITE-->
+<div class="container-fluid">
+<div class="row">
+  <ul class="goto m-3">
+    <li>
+      <%= link_to  "MY TALKEYS", users_path, class: 'link' %>
+    </li>
+    <li>
+      <%= link_to  "FOLLOWERS", users_path, class: 'link'%>
+    </li>
+    <li>
+      <%= link_to  "FOLLOWING", users_path, class: 'link' %>
+    </li>
+    <li>
+      <%= link_to  "LOGOUT", users_path, class: 'link'%>
+    </li>
+  </ul>
+</div>
+<div class="row">
+  <div class="col-12">
+    <h3>Create a new opinion and let's talk!</h3>
+    <%= render 'talk', opinion: @opinion %>
+  </div>
+  <%= link_to 'Back', opinions_path %>
+</div>
+</div>
 
-<%= render 'form', opinion: @opinion %>
 
-<%= link_to 'Back', opinions_path %>
