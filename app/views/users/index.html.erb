@@ -7,19 +7,18 @@
       <div class="row">
         <ul class="goto m-3">
           <li>
-            <%= link_to users_path, class: 'link' do %>
-              <span class="link">OPINION</span>
-              
+            <%= link_to user_path(current_user), class: 'link' do %>
+              <span class="link">MY TALKEYS</span>
             <% end %>
           </li>
           <li>
-            <%= link_to  "PHOTOS", users_path, class: 'link'%>
+            <%= link_to  "PHOTOS", "/follow/2", class: 'link'%>
           </li>
           <li>
-            <%= link_to  "FOLLOWING", users_path, class: 'link' %>
+            <%= link_to  "FOLLOWING", "/follow/1", class: 'link' %>
           </li>
           <li>
-            <%= link_to  "MORE", users_path, class: 'link'%>
+            <%= link_to  "MORE", root_path, class: 'link'%>
           </li>
         </ul>
       </div>

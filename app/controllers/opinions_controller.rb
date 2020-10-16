@@ -6,7 +6,7 @@ class OpinionsController < ApplicationController
   def index
     @opinions = Opinion.all
     @opinion = Opinion.new
-    @users = User.all
+    @users = User.who_to_follow(current_user)
   end
 
   def show; end

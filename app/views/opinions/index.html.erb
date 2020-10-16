@@ -54,7 +54,7 @@
       </div>
 
       <!--FOLLOWEB PROFILE-->
-      <% unless @users.nil? %>
+      <% if @users.any? %>
         <% @users.each do |user| %>
           <div class="row mt-3">
             <%= image_tag('talky.png', alt: 'talkey', class: 'col-3') %>
