@@ -9,12 +9,15 @@ class UsersController < ApplicationController
     @opinion = Opinion.new
     @whotofollow = User.who_to_follow(current_user)
     @users = params[:list] == '1' ? current_user.followings : User.fans(current_user)
+    @Tag = params[:list] == '1' ? 'FOLLOWING' : 'FOLLOWERS'
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    @opinion = Opinion.new
     @users = User.fans(@user)
+    @opinions = @user.opinions
   end
 
   # GET /users/new
@@ -59,7 +62,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url, alert: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

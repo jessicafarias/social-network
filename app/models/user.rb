@@ -16,8 +16,9 @@ class User < ApplicationRecord
 
   def stop_to_follow(user)
     @following = relationship.find_by(following_id: user.id)
-    @following&.destroy
   end
 
-  def friends?(user); end
+  def follow?(user)
+    followings.include?(user)
+  end
 end

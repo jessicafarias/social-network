@@ -23,7 +23,7 @@ class OpinionsController < ApplicationController
     @opinion.user_id = User.find_by(username: current_user.username.to_s).id
     respond_to do |format|
       if @opinion.save
-        format.html { redirect_to @opinion, notice: 'Opinion was successfully created.' }
+        format.html { redirect_to new_opinion_path, notice: 'Opinion was successfully created.' }
         format.json { render :show, status: :created, location: @opinion }
       else
         format.html { render :new }
@@ -51,7 +51,7 @@ class OpinionsController < ApplicationController
   def destroy
     @opinion.destroy
     respond_to do |format|
-      format.html { redirect_to opinions_url, notice: 'Opinion was successfully destroyed.' }
+      format.html { redirect_to opinions_url, alert: 'Opinion was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

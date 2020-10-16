@@ -26,7 +26,7 @@ class FollowingsController < ApplicationController
     @follow = User.find_by(id: params[:id])
     respond_to do |format|
       if current_user.start_to_follow(@follow)
-        format.html { redirect_to root_path, notice: 'Following was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Following' }
       else
         format.html { render :new }
         format.json { render json: @following.errors, status: :unprocessable_entity }
@@ -34,26 +34,13 @@ class FollowingsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /followings/1
-  # PATCH/PUT /followings/1.json
-  def update
-    respond_to do |format|
-      if @following.update(following_params)
-        format.html { redirect_to @following, notice: 'Following was successfully updated.' }
-        format.json { render :show, status: :ok, location: @following }
-      else
-        format.html { render :edit }
-        format.json { render json: @following.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
   # DELETE /followings/1
   # DELETE /followings/1.json
   def destroy
     @following.destroy
     respond_to do |format|
-      format.html { redirect_to followings_url, notice: 'Following was successfully destroyed.' }
+      format.html { redirect_to user_path(current_user), alert: 'Unfollowed.' }
       format.json { head :no_content }
     end
   end

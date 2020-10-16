@@ -53,8 +53,17 @@ $blue : rgb(35, 110, 172);
 
 .talk {
   background-color: white;
-  margin: 3em;
+  margin: 2em;
+  border: thin solid rgba(172, 172, 172, 0.452);
+  border-radius: 10px;
 
+  .head {
+    padding: 10px;
+    margin: 10px;
+    color: $blue;
+    font-size: 15px;
+    border-bottom: thin solid rgba(172, 172, 172, 0.452);
+  }
   .image {
     width: 50px;
     height: 50px;

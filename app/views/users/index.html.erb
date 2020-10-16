@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <div class="container-fluid">
   <div class="row">
     <!--PEOPLE-->
@@ -30,10 +29,10 @@
 
       </div>
       <div class="row">
-        <div class= "col-12">
-          
+        <div class= "col-12">         
           <% if @users.any? %>
             <div class="talk">
+            <p class="head"><%= @Tag %></p>
               <% @users.each do |user| %>
                 <div class="d-flex flex-row">
                   <%= link_to image_tag('talky.png', alt: 'talkeyuser', class: 'image m-4'), user_path(user) %>
@@ -79,5 +78,3 @@
     </div>
   </div>
 </div>
-
-<%#= link_to 'Show', user %>
