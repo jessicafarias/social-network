@@ -15,16 +15,16 @@
       <div class="row">
         <ul class="goto m-3">
           <li>
-            <%= link_to  "OPINION", users_path, class: 'link' %>
+            <%= link_to  "TALKEYS", user_path(current_user), class: 'link' %>
           </li>
           <li>
-            <%= link_to  "PHOTOS", users_path, class: 'link'%>
+            <%= link_to  "FOLLOWERS", users_path(@followers), class: 'link' %>
           </li>
           <li>
             <%= link_to  "FOLLOWING", users_path, class: 'link' %>
           </li>
           <li>
-            <%= link_to  "MORE", users_path, class: 'link'%>
+            <%= link_to  "CONNECT", users_path, class: 'link'%>
           </li>
         </ul>
       </div>

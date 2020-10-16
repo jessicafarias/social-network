@@ -17,8 +17,9 @@ module UserSessionsHelper
   end
 
   def authenticate_user!
-      unless current_user?
-        format.html { redirect_to login_path, notice: 'Please Loged In' }
-      end
+    unless current_user?
+      redirect_to login_path
+      flash.now.alert = 'Login failed.'
+    end
   end
 end

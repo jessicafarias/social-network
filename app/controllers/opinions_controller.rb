@@ -3,31 +3,23 @@ class OpinionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_opinion, only: %i[show edit update destroy]
 
-  # GET /opinions
-  # GET /opinions.json
   def index
     @opinions = Opinion.all
     @opinion = Opinion.new
     @users = User.all
   end
 
-  # GET /opinions/1
-  # GET /opinions/1.json
   def show; end
 
-  # GET /opinions/new
   def new
     @opinion = Opinion.new
   end
 
-  # GET /opinions/1/edit
   def edit; end
 
-  # POST /opinions
-  # POST /opinions.json
   def create
     @opinion = Opinion.new(opinion_params)
-
+    @opinion.user_id = User.find_by(username: current_user.username.to_s).id
     respond_to do |format|
       if @opinion.save
         format.html { redirect_to @opinion, notice: 'Opinion was successfully created.' }
@@ -72,6 +64,6 @@ class OpinionsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def opinion_params
-    params.require(:opinion).permit(:body, :user_id)
+    params.require(:opinion).permit(:body)
   end
 end

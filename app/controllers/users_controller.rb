@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
   include UserSessionsHelper
+  before_action :authenticate_user!, except: %i[new create]
   before_action :set_user, only: %i[show edit update destroy]
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
     @opinion = Opinion.new
+    @whotofollow = User.who_to_follow(current_user)
+    @users = params[:list] == '1' ? current_user.followings : User.fans(current_user)
   end
 
   # GET /users/1
@@ -25,10 +27,9 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to login_path, notice: 'User was successfully created please LogIn.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }

@@ -1,4 +1,5 @@
 class FollowingsController < ApplicationController
+  include UserSessionsHelper
   before_action :set_following, only: %i[show edit update destroy]
 
   # GET /followings
@@ -22,12 +23,10 @@ class FollowingsController < ApplicationController
   # POST /followings
   # POST /followings.json
   def create
-    @following = Following.new(following_params)
-
+    @follow = User.find_by(id: params[:id])
     respond_to do |format|
-      if @following.save
-        format.html { redirect_to @following, notice: 'Following was successfully created.' }
-        format.json { render :show, status: :created, location: @following }
+      if current_user.start_to_follow(@follow)
+        format.html { redirect_to root_path, notice: 'Following was successfully created.' }
       else
         format.html { render :new }
         format.json { render json: @following.errors, status: :unprocessable_entity }

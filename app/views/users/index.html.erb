@@ -7,7 +7,10 @@
       <div class="row">
         <ul class="goto m-3">
           <li>
-            <%= link_to  "OPINION", users_path, class: 'link' %>
+            <%= link_to users_path, class: 'link' do %>
+              <span class="link">OPINION</span>
+              
+            <% end %>
           </li>
           <li>
             <%= link_to  "PHOTOS", users_path, class: 'link'%>
@@ -32,19 +35,21 @@
       <div class="row">
         <div class= "col-12">
           
-          <div class="talk">
-            <% @users.each do |user| %>
-              <div class="d-flex flex-row">
-                <%= image_tag('talky.png', alt: 'talkey', class: 'image m-4') %>
-                <div class="d-flex flex-column justify-content-center">
-                  <p class="user">@<%= user.username %></p>
-                  <% unless user.opinions.first.nil? %>
-                    <p class="opinion"><%= user.opinions.first.body %></p>
-                  <% end %>
+          <% if @users.any? %>
+            <div class="talk">
+              <% @users.each do |user| %>
+                <div class="d-flex flex-row">
+                  <%= image_tag('talky.png', alt: 'talkey', class: 'image m-4') %>
+                  <div class="d-flex flex-column justify-content-center">
+                    <p class="user">@<%= user.username %></p>
+                    <% unless user.opinions.first.nil? %>
+                      <p class="opinion"><%= user.opinions.first.body %></p>
+                    <% end %>
+                  </div>
                 </div>
-              </div>
-            <% end %>
-          </div>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
@@ -55,24 +60,25 @@
         <p>WHO TO FOLLOW</p>
       </div>
 
+
       <!--FOLLOWEB PROFILE-->
-      <% @users.each do |user| %>
-        <div class="row mt-3">
-          <%= image_tag('talky.png', alt: 'talkey', class: 'col-3') %>
-          <div class="col-6">
-            <p><%= user.fullname %></p>
-            <p><%= user.username %></p>
+      <% if @whotofollow.any? %>
+        <% @whotofollow.each do |user| %>
+          <div class="row mt-3">
+            <%= image_tag('talky.png', alt: 'talkey', class: 'col-3') %>
+            <div class="col-6">
+              <p><%= user.fullname %></p>
+              <p><%= user.username %></p>
+            </div>
+            <%= link_to "/startfollow/#{user.id}" do %>
+                <i class="fa fa-2x fa-plus-circle fill-white m-3"></i>
+            <% end %>
           </div>
-          <%= link_to edit_user_path(user) do %>
-              <i class="fa fa-2x fa-plus-circle fill-white m-3"></i>
-          <% end %>
-        </div>
+        <% end %>
       <% end %>
 
     </div>
   </div>
 </div>
-
-
 
 <%#= link_to 'Show', user %>
