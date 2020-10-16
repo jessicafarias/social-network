@@ -17,18 +17,17 @@
           <div class="row bgc-bluer">
             <!--CURRENT USER_NAME-->
             <div class ="d-flex justify-content-between align-items-center w-100">
-              <%= link_to image_tag('talky.png', alt: 'Logo', class: 'img'), users_path %>
-              
-                <p><%= current_user.fullname.upcase %></p>
+              <%= link_to image_tag('talky.png', alt: 'Logo', class: 'img'), user_path(current_user) %>
+              <p><%= current_user.fullname.upcase %></p>
             </div>
             <!--FOLLOWIN COUNT-->
             <div class ="row d-flex justify-content-around align-items-center mt-4 w-100">
               <div class="d-flex flex-column align-items-center">
-                <p>250</p>
+                <p><%= current_user.followings.count %></p>
                 <p>Following</p>
               </div>
               <div class="d-flex flex-column align-items-center">
-                <p>250</p>
+                <p><%= User.fans(current_user).count %></p>
                 <p>Followers</p>
               </div>
             </div>
@@ -65,9 +64,6 @@
               <div class="">
                 <%= link_to new_opinion_path, class: 'level-item mr-5' do %>
                   <i class="fa fa-sm fa-pencil fill-blue"></i>
-                <% end %>
-                <%= link_to users_path, class: 'level-item mr-5' do %>
-                  <i class="fa fa-sm fa-envelope fill-blue"></i>
                 <% end %>
                   <%= link_to users_path, class: 'level-item mr-5' do %>
                   <i class="fa fa-sm fa-search fill-blue"></i>

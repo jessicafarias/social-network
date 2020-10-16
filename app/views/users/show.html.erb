@@ -58,15 +58,15 @@
       <!--PROFILE COUNT FOLLOWERS-->
       <div class="row mt-4">
         <div class="col-4">
-          <p><%= current_user.opinions.count %></p>
+          <p><%= @user.opinions.count %></p>
           <p>Talkeys</p>
         </div>
         <div class="col-4">
-          <p><%= User.fans(current_user).count %></p>
+          <p><%= User.fans(@user).count %></p>
           <p>followers</p>
         </div>
         <div class="col-4">
-          <p><%= User.who_to_follow(current_user).count %></p>
+          <p><%= @user.followings.count %></p>
           <p>Followings</p>
         </div>
       </div>
@@ -79,7 +79,9 @@
       <!--FOLLOWEB PROFILE-->
       <% @users.each do |user| %>
         <div class="row mt-3">
-          <%= image_tag('talky.png', alt: 'talkey', class: 'col-3') %>
+          <div class="col-3 d-flex align-items-center">
+            <%= link_to image_tag('talky.png', alt: 'talkey', class: 'w-100 img'), user_path(user) %>
+          </div>
           <div class="col-6">
             <p><%= user.fullname %></p>
             <p>@<%= user.username %></p>

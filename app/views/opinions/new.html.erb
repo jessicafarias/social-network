@@ -11,17 +11,35 @@
     <li>
       <%= link_to  "FOLLOWING", users_path, class: 'link' %>
     </li>
-    <li>
-      <%= link_to  "LOGOUT", users_path, class: 'link'%>
-    </li>
   </ul>
 </div>
 <div class="row">
   <div class="col-12">
-    <h3>Create a new opinion and let's talk!</h3>
+    <h3 class="d-flex justify-content-center">Create a new opinion and let's talk!</h3>
+  </div>
+  <div class="col-12">
     <%= render 'talk', opinion: @opinion %>
   </div>
-  <%= link_to 'Back', opinions_path %>
+    <div class="col-12">
+    <h3 class="d-flex justify-content-center">Your talkeys</h3>
+  </div>
+  <div class= "col-12">
+  <div class="talk">
+    <% @opinions.each do |opinion| %>
+      <div class="d-flex flex-row">
+      <div>
+        <%= link_to edit_opinion_path(opinion), class: 'level-item mr-2' do %>
+            <i class="fa fa-sm fa-pencil fill-blue"></i>
+        <% end %>
+      </div>
+        <div class="d-flex flex-column justify-content-center">
+          <p class="opinion"><%= opinion.body %></p>
+        </div>
+        
+      </div>
+    <% end %>
+  </div>
+</div>
 </div>
 </div>
 

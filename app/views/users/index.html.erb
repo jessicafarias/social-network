@@ -7,18 +7,16 @@
       <div class="row">
         <ul class="goto m-3">
           <li>
-            <%= link_to user_path(current_user), class: 'link' do %>
-              <span class="link">MY TALKEYS</span>
-            <% end %>
+            <%= link_to  "TALKEYS", user_path(current_user), class: 'link' %>
           </li>
           <li>
-            <%= link_to  "PHOTOS", "/follow/2", class: 'link'%>
+            <%= link_to  "FOLLOWERS", users_path(@followers), class: 'link' %>
           </li>
           <li>
-            <%= link_to  "FOLLOWING", "/follow/1", class: 'link' %>
+            <%= link_to  "FOLLOWING", users_path, class: 'link' %>
           </li>
           <li>
-            <%= link_to  "MORE", root_path, class: 'link'%>
+            <%= link_to  "CONNECT", users_path, class: 'link'%>
           </li>
         </ul>
       </div>
@@ -38,9 +36,9 @@
             <div class="talk">
               <% @users.each do |user| %>
                 <div class="d-flex flex-row">
-                  <%= image_tag('talky.png', alt: 'talkey', class: 'image m-4') %>
+                  <%= link_to image_tag('talky.png', alt: 'talkeyuser', class: 'image m-4'), user_path(user) %>
                   <div class="d-flex flex-column justify-content-center">
-                    <p class="user">@<%= user.username %></p>
+                    <p class="user">@<%= user.fullname %></p>
                     <% unless user.opinions.first.nil? %>
                       <p class="opinion"><%= user.opinions.first.body %></p>
                     <% end %>
@@ -64,8 +62,10 @@
       <% if @whotofollow.any? %>
         <% @whotofollow.each do |user| %>
           <div class="row mt-3">
-            <%= image_tag('talky.png', alt: 'talkey', class: 'col-3') %>
-            <div class="col-6">
+            <div class="col-3 d-flex align-items-center">
+              <%= link_to image_tag('talky.png', alt: 'talkeyuser', class: 'w-100'), user_path(user) %> 
+            </div>
+            <div class="col-6 d-flex justify-content-center flex-column">
               <p><%= user.fullname %></p>
               <p><%= user.username %></p>
             </div>

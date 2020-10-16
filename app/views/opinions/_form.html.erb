@@ -11,17 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field mt-3">
     <%= form.label :body %>
     <%= form.text_area :body %>
   </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions mt-3">
+    <%= form.submit 'Update', class: 'btn-blue' %>
   </div>
 <% end %>

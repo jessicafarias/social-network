@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @users = User.fans(current_user)
+    @users = User.fans(@user)
   end
 
   # GET /users/new

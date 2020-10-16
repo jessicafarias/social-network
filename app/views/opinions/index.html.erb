@@ -7,19 +7,19 @@
       <!--MENU GOTO WHITE-->
       <div class="row">
         <ul class="goto m-3">
-            <li>
-              <%= link_to  "MY TALKEYS", users_path, class: 'link' %>
-            </li>
-            <li>
-              <%= link_to  "FOLLOWERS", users_path, class: 'link'%>
-            </li>
-            <li>
-              <%= link_to  "FOLLOWING", users_path, class: 'link' %>
-            </li>
-            <li>
-              <%= link_to  "LOGOUT", users_path, class: 'link'%>
-            </li>
-          </ul>
+          <li>
+            <%= link_to  "TALKEYS", user_path(current_user), class: 'link' %>
+          </li>
+          <li>
+            <%= link_to  "FOLLOWERS", users_path(@followers), class: 'link' %>
+          </li>
+          <li>
+            <%= link_to  "FOLLOWING", users_path, class: 'link' %>
+          </li>
+          <li>
+            <%= link_to  "CONNECT", users_path, class: 'link'%>
+          </li>
+        </ul>
       </div>
       <!--TWEETS-->
       <div class="row">
@@ -35,7 +35,7 @@
           <div class="talk">
             <% @opinions.each do |opinion| %>
               <div class="d-flex flex-row">
-                <%= image_tag('talky.png', alt: 'talkey', class: 'image m-4') %>
+              <%= link_to image_tag('talky.png', alt: 'talkey', class: 'image m-4'), user_path(opinion.user) %>
                 <div class="d-flex flex-column justify-content-center">
                   <p class="user">@<%= opinion.user.username %></p>
                   <p class="opinion"><%= opinion.body %></p>
@@ -57,8 +57,10 @@
       <% if @users.any? %>
         <% @users.each do |user| %>
           <div class="row mt-3">
-            <%= image_tag('talky.png', alt: 'talkey', class: 'col-3') %>
-            <div class="col-6">
+            <div class="col-3 d-flex align-items-center">
+                <%= link_to image_tag('talky.png', alt: 'talkeyuser', class: 'w-100'), user_path(user) %>
+            </div>
+            <div class="col-6 d-flex flex-column justify-content-center ">
               <p><%= user.fullname %></p>
               <p><%= user.username %></p>
             </div>

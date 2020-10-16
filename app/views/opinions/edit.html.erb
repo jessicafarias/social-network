@@ -1,6 +1,17 @@
-<h1>Editing Opinion</h1>
+<div class="container-fluid">
+  <div class="row">
+    <h1 class="m-auto">Editing Opinion</h1>
+  </div>
+  <div class="row">
+    <div class="m-auto">
+      <%= render 'form', opinion: @opinion%>
+    </div>
+  </div>
 
-<%= render 'form', opinion: @opinion %>
+  <div class="row">
+    <div class="m-auto">
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Show', @opinion %> |
-<%= link_to 'Back', opinions_path %>
+
