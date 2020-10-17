@@ -72,7 +72,7 @@
                 <% end %>
 
                 <%= image_tag('talky.png', alt: 'userprofile', class: '') %>
-                <%= link_to edit_user_path(@user) do %>
+                <%= link_to root_path do %>
                     <i class="fa fa-2x fa-gg-circle fill-white m-3"></i>
                 <% end %>
               </div>
@@ -103,7 +103,7 @@
             <div class="row mt-4">
               <p>FOLLOWED BY</p>
             </div>
-            <!--FOLLOWEB PROFILE-->
+            <!--FOLLOWED BY OTHER-->
             <div class="row">
               <% @users.each do |user| %>
                 <div class="row mt-3">

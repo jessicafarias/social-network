@@ -1,7 +1,9 @@
 <div class="container-fluid">
   <div class="row">
+
     <!--PEOPLE-->
     <div class="col-9">
+
       <!--MENU GOTO WHITE-->
       <div class="row">
         <ul class="goto m-3">
@@ -19,62 +21,26 @@
           </li>
         </ul>
       </div>
+
       <!--TWEETS-->
       <div class="row">
-        <% if current_user? %>
-          <div class="col-12">
-            <%= render 'talk', opinion: @opinion %>
-          </div>
-        <% end %>
-
+        <div class="col-12">
+          <%= render 'talk', opinion: @opinion %>
+        </div>
       </div>
       <div class="row">
-        <div class= "col-12">         
-          <% if @users.any? %>
-            <div class="talk">
-            <p class="head"><%= @tag %></p>
-              <% @users.each do |user| %>
-                <div class="d-flex flex-row">
-                  <%= link_to image_tag('talky.png', alt: 'talkeyuser', class: 'image m-4'), user_path(user) %>
-                  <div class="d-flex flex-column justify-content-center">
-                    <p class="user">@<%= user.fullname %></p>
-                    <% unless user.opinions.first.nil? %>
-                      <p class="opinion"><%= user.opinions.first.body %></p>
-                    <% end %>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
+        <div class= "col-12">   
+          <%= display_userlist %>      
         </div>
       </div>
     </div>
+
     <!--FOLLOWED BY-->
     <div class="col-3">
-      <!--WHO TO FOLLOW TAG-->
       <div class="row mt-4">
         <p>WHO TO FOLLOW</p>
       </div>
-
-
-      <!--FOLLOWEB PROFILE-->
-      <% if @whotofollow.any? %>
-        <% @whotofollow.each do |user| %>
-          <div class="row mt-3">
-            <div class="col-3 d-flex align-items-center">
-              <%= link_to image_tag('talky.png', alt: 'talkeyuser', class: 'w-100'), user_path(user) %> 
-            </div>
-            <div class="col-6 d-flex justify-content-center flex-column">
-              <p><%= user.fullname %></p>
-              <p><%= user.username %></p>
-            </div>
-            <%= link_to "/startfollow/#{user.id}" do %>
-                <i class="fa fa-2x fa-plus-circle fill-white m-3"></i>
-            <% end %>
-          </div>
-        <% end %>
-      <% end %>
-
+      <%= whotofollow %>
     </div>
   </div>
 </div>

@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   scope :fans, ->(user) { joins(:relationship).where('following_id=?', user.id) }
   scope :who_to_follow, ->(user) { where('id != ?', user.id) - user.followings }
-  scope :order_desc, -> { order(created_at: :desc)}
+  scope :order_desc, -> { order(created_at: :desc) }
 
   def start_to_follow(user)
     @following = relationship.build(user_id: id, following_id: user.id)

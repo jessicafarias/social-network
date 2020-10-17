@@ -6,7 +6,7 @@ class OpinionsController < ApplicationController
   def index
     @opinions = Opinion.all.order_desc
     @opinion = Opinion.new
-    @users = User.who_to_follow(current_user)
+    @whotofollow = User.who_to_follow(current_user)
   end
 
   def show
@@ -55,7 +55,6 @@ class OpinionsController < ApplicationController
       end
     end
   end
-
 
   private
 

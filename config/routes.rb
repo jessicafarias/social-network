@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :followings, only: [:create, :destroy, :new]
   resources :opinions, except: %i[:destroy]
-  resources :users, except: %i[:destroy]
+  resources :users, except: %i[:destroy, :edit]
   resources :user_sessions, only: [:new, :create, :destroy]
   root to: 'opinions#index'
 
