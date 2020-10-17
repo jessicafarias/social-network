@@ -4,11 +4,10 @@ class User < ApplicationRecord
 
   has_many :opinions
   has_many :relationship, class_name: 'Following', foreign_key: 'user_id', dependent: :destroy
-
   has_many :followings, through: :relationship
+
   scope :fans, ->(user) { joins(:relationship).where('following_id=?', user.id) }
   scope :who_to_follow, ->(user) { where('id != ?', user.id) - user.followings }
-
   scope :order_desc, -> { order(created_at: :desc)}
 
   def start_to_follow(user)
@@ -18,7 +17,6 @@ class User < ApplicationRecord
 
   def stop_to_follow(user)
     @following = relationship.find_by(following_id: user.id)
-    #@following&.destroy
   end
 
   def follow?(user)

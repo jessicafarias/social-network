@@ -2,10 +2,6 @@ class FollowingsController < ApplicationController
   include UserSessionsHelper
   before_action :set_following, only: %i[show edit update destroy]
 
-  def index
-    @followings = Following.all
-  end
-
   def new
     @following = Following.new
   end
@@ -22,8 +18,6 @@ class FollowingsController < ApplicationController
     end
   end
 
-  # DELETE /followings/1
-  # DELETE /followings/1.json
   def destroy
     @following.destroy
     respond_to do |format|

@@ -44,8 +44,6 @@ class OpinionsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /opinions/1
-  # PATCH/PUT /opinions/1.json
   def update
     respond_to do |format|
       if @opinion.update(opinion_params)
@@ -58,15 +56,6 @@ class OpinionsController < ApplicationController
     end
   end
 
-  # DELETE /opinions/1
-  # DELETE /opinions/1.json
-  def destroy
-    @opinion.destroy
-    respond_to do |format|
-      format.html { redirect_to opinions_url, alert: 'Opinion was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
 
   private
 
