@@ -5,7 +5,7 @@ class UserSessionsController < ApplicationController
   def create
     user = User.find_by(username: params[:username])
     if user.nil?
-      flash.now.alert = 'Login failed.'
+      flash.now.alert = 'Login failed'
       render action: :new
     else
       session[:name] = user.fullname

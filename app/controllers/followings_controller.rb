@@ -2,26 +2,14 @@ class FollowingsController < ApplicationController
   include UserSessionsHelper
   before_action :set_following, only: %i[show edit update destroy]
 
-  # GET /followings
-  # GET /followings.json
   def index
     @followings = Following.all
   end
 
-  # GET /followings/1
-  # GET /followings/1.json
-  def show; end
-
-  # GET /followings/new
   def new
     @following = Following.new
   end
 
-  # GET /followings/1/edit
-  def edit; end
-
-  # POST /followings
-  # POST /followings.json
   def create
     @follow = User.find_by(id: params[:id])
     respond_to do |format|
@@ -34,13 +22,12 @@ class FollowingsController < ApplicationController
     end
   end
 
-
   # DELETE /followings/1
   # DELETE /followings/1.json
   def destroy
     @following.destroy
     respond_to do |format|
-      format.html { redirect_to user_path(current_user), alert: 'Unfollowed.' }
+      format.html { redirect_to root_path, alert: 'Unfollowed.' }
       format.json { head :no_content }
     end
   end

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :followings
-  resources :opinions
-  resources :users
-  resources :user_sessions, only: [:new, :create, :destroy]
+  resources :followings, only: [:index, :create, :destroy, :update, :new]
+  resources :opinions, only: [:index, :create, :destroy, :edit, :show, :update, :new]
+  resources :users, only: [:index, :create, :destroy, :edit, :show, :update, :new]
+  resources :user_sessions, only: [:new, :create, :destroy, :new]
   root to: 'opinions#index'
 
   get 'login' => 'user_sessions#new'

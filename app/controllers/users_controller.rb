@@ -8,8 +8,17 @@ class UsersController < ApplicationController
   def index
     @opinion = Opinion.new
     @whotofollow = User.who_to_follow(current_user)
-    @users = params[:list] == '1' ? current_user.followings : User.fans(current_user)
-    @Tag = params[:list] == '1' ? 'FOLLOWING' : 'FOLLOWERS'
+    case params[:list]
+    when '1'
+      @users = current_user.followings
+      @tag = 'FOLLOWING'
+    when '2'
+      @users = User.fans(current_user)
+      @tag = 'FOLLOWERS'
+    else
+      @users = User.all.where('id!=?', current_user.id)
+      @tag = 'ALL USERS'
+    end
   end
 
   # GET /users/1
@@ -17,7 +26,7 @@ class UsersController < ApplicationController
   def show
     @opinion = Opinion.new
     @users = User.fans(@user)
-    @opinions = @user.opinions
+    @opinions = @user.opinions.order_desc
   end
 
   # GET /users/new

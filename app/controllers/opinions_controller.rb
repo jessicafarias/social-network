@@ -4,16 +4,28 @@ class OpinionsController < ApplicationController
   before_action :set_opinion, only: %i[show edit update destroy]
 
   def index
-    @opinions = Opinion.all
+    @opinions = Opinion.all.order_desc
     @opinion = Opinion.new
     @users = User.who_to_follow(current_user)
   end
 
-  def show; end
+  def show
+    case params[:list]
+    when '1'
+      @users = current_user.followings
+      @tag = 'FOLLOWING'
+    when '2'
+      @users = User.fans(current_user)
+      @tag = 'FOLLOWERS'
+    else
+      @users = User.all.where('id!=?', current_user.id)
+      @tag = 'ALL USERS'
+    end
+  end
 
   def new
     @opinion = Opinion.new
-    @opinions = current_user.opinions
+    @opinions = current_user.opinions.order_desc
   end
 
   def edit; end
