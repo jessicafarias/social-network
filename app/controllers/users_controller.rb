@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
-        if(current_user?)
+        if current_user?
           format.html { redirect_to root_path, notice: 'User was successfully created' }
         else
           format.html { redirect_to login_path, notice: 'User was successfully created please LogIn.' }
