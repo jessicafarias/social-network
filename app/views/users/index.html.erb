@@ -5,22 +5,7 @@
     <div class="col-9">
 
       <!--MENU GOTO WHITE-->
-      <div class="row">
-        <ul class="goto m-3">
-          <li>
-            <%= link_to  "TALKEYS", user_path(current_user), class: 'link' %>
-          </li>
-          <li>
-            <%= link_to  "FOLLOWERS", users_path(@followers), class: 'link' %>
-          </li>
-          <li>
-            <%= link_to  "FOLLOWING", users_path, class: 'link' %>
-          </li>
-          <li>
-            <%= link_to  "CONNECT", users_path, class: 'link'%>
-          </li>
-        </ul>
-      </div>
+      <%= display_goto_menu %>
 
       <!--TWEETS-->
       <div class="row">

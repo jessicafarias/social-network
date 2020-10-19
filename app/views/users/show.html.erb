@@ -10,44 +10,17 @@
       </div>
       <!--MENU GOTO WHITE-->
       <div class="row">
-        <ul class="goto m-3">
-          <li>
-            <%= link_to  "TALKEYS", user_path(current_user), class: 'link' %>
-          </li>
-          <li>
-            <%= link_to  "FOLLOWERS", opinions_path, class: 'link' %>
-          </li>
-          <li>
-            <%= link_to  "FOLLOWING", opinions_path, class: 'link' %>
-          </li>
-          <li>
-            <%= link_to  "CONNECT", opinions_path, class: 'link'%>
-          </li>
-        </ul>
+        <%= display_goto_menu %>
       </div>
       <div class="row">
-        <% if current_user? %>
-          <div class="col-12">
-            <%= render 'talk', opinion: @opinion %>
-          </div>
-        <% end %>
+        <div class="col-12">
+          <%= render 'talk', opinion: @opinion %>
+        </div>
       </div>
       <!--OPINIONS TALKEYS-->
       <div class="row">
-        <div class= "col-12">         
-          <% if @opinions.any? %>
-            <div class="talk">
-              <% @opinions.each do |opinion| %>
-                <div class="d-flex flex-row">
-                  <%= link_to image_tag('talky.png', alt: 'talkeyuser', class: 'image m-4'), user_path(opinion.user) %>
-                  <div class="d-flex flex-column justify-content-center">
-                    <p class="user">@<%= opinion.user.fullname %></p>
-                    <p class="opinion"><%= opinion.body %></p>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
+        <div class= "col-12">   
+          <%= display_opinions %>      
         </div>
       </div>
     </div>
@@ -58,24 +31,7 @@
           <div class="col-12">
             <!-- PROFILE CHANGE PICTURE-->
             <div class="row right mt-4">
-              <div class="d-flex align-items-center justify-content-around m-auto">
-                <% if current_user.follow?(@user) && current_user != @user%>
-                  <%= link_to following_path(current_user.stop_to_follow(@user)), method: :delete, data: { confirm: 'Are you sure you stop follow' } do %>
-                    <i class="fa fa-2x fa-minus-circle fill-white m-3"></i>
-                  <% end %>
-                <% elsif current_user != @user %>
-                  <%= link_to "/startfollow/#{@user.id}" do %>
-                      <i class="fa fa-2x fa-plus-circle fill-white m-3"></i>
-                  <% end %>
-                <% else %>
-                      <i class="fa fa-2x fa-check-circle fill-white m-3"></i>
-                <% end %>
-
-                <%= image_tag('talky.png', alt: 'userprofile', class: '') %>
-                <%= link_to root_path do %>
-                    <i class="fa fa-2x fa-gg-circle fill-white m-3"></i>
-                <% end %>
-              </div>
+              <%= display_user_show %>
             </div>
             <!--USERNAME DATA-->
             <div class="row mt-4">
@@ -104,26 +60,7 @@
               <p>FOLLOWED BY</p>
             </div>
             <!--FOLLOWED BY OTHER-->
-            <div class="row">
-              <% @users.each do |user| %>
-                <div class="row mt-3">
-                  <div class="col-3 d-flex align-items-center">
-                    <%= link_to image_tag('talky.png', alt: 'talkey', class: 'w-100 img'), user_path(user) %>
-                  </div>
-                  <div class="col-6">
-                    <p><%= user.fullname %></p>
-                    <p>@<%= user.username %></p>
-                  </div>
-                  <div class="col-3 m-auto">        
-                  <% unless current_user.follow?(user) %>
-                    <%= link_to "/startfollow/#{user.id}" do %>
-                        <i class="fa fa-2x fa-plus-circle fill-white m-3"></i>
-                    <% end %>
-                  <% end %>
-                  </div>
-                </div>
-              <% end %>
-            </div>
+            <%= whotofollow %>
           </div>
         </div>
       </section>

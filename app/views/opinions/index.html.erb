@@ -4,21 +4,15 @@
     <div class="col-9">
       <!--MENU GOTO WHITE-->
       <div class="row">
-        <ul class="goto m-3">
-          <li>
-            <%= link_to  "TALKEYS", user_path(current_user), class: 'link' %>
-          </li>
-          <li>
-            <%= link_to  "FOLLOWERS", users_path(@followers), class: 'link' %>
-          </li>
-          <li>
-            <%= link_to  "FOLLOWING", users_path, class: 'link' %>
-          </li>
-          <li>
-            <%= link_to  "CONNECT", users_path, class: 'link'%>
-          </li>
-        </ul>
+        <div class="portada ">
+          <%= image_tag('catrina1.jpg', alt: 'catrina1', class: 'cover w-100') %>
+        </div>
       </div>
+      
+      <div class="row">
+        <%= display_goto_menu %>
+      </div>
+      
       <!--TWEETS-->
       <div class="row">
         <% if current_user? %>
@@ -30,17 +24,7 @@
 
       <div class="row">
         <div class= "col-12">
-          <div class="talk">
-            <% @opinions.each do |opinion| %>
-              <div class="d-flex flex-row">
-              <%= link_to image_tag('talky.png', alt: 'talkey', class: 'image m-4'), user_path(opinion.user) %>
-                <div class="d-flex flex-column justify-content-center">
-                  <p class="user">@<%= opinion.user.username %></p>
-                  <p class="opinion"><%= opinion.body %></p>
-                </div>
-              </div>
-            <% end %>
-          </div>
+            <%= display_opinions %>  
         </div>
       </div>
     </div>

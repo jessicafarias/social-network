@@ -1,26 +1,17 @@
 class OpinionsController < ApplicationController
+  include OpinionsHelper
   include UserSessionsHelper
   before_action :authenticate_user!
   before_action :set_opinion, only: %i[show edit update destroy]
 
   def index
-    @opinions = Opinion.all.order_desc
+    set_lists
     @opinion = Opinion.new
     @whotofollow = User.who_to_follow(current_user)
   end
 
   def show
-    case params[:list]
-    when '1'
-      @users = current_user.followings
-      @tag = 'FOLLOWING'
-    when '2'
-      @users = User.fans(current_user)
-      @tag = 'FOLLOWERS'
-    else
-      @users = User.all.where('id!=?', current_user.id)
-      @tag = 'ALL USERS'
-    end
+    set_lists
   end
 
   def new
@@ -54,17 +45,5 @@ class OpinionsController < ApplicationController
         format.json { render json: @opinion.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-  private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_opinion
-    @opinion = Opinion.find(params[:id])
-  end
-
-  # Only allow a list of trusted parameters through.
-  def opinion_params
-    params.require(:opinion).permit(:body)
   end
 end

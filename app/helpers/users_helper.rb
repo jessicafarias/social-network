@@ -46,7 +46,7 @@ module UsersHelper
       div(image(user_path(user), 'w-100'), 'col-3 d-flex align-items-center') +
       div(paragraph(user.fullname, '') + paragraph(user.username, ''),
           'col-6 d-flex justify-content-center flex-column') +
-      go_to("/startfollow/#{user.id}", 'fa fa-2x fa-plus-circle fill-white m-3'),
+          (go_to("/startfollow/#{user.id}", 'fa fa-2x fa-plus-circle fill-white m-3') if current_user != user),
       'row mt-3'
     )
   end
@@ -60,5 +60,49 @@ module UsersHelper
       end
     end
     list_item
+  end
+
+  def display_user_show
+    div(
+      if current_user.follow?(@user) && current_user != @user
+        link_to following_path(current_user.stop_to_follow(@user)),
+                method: :delete, data: { confirm: 'Are you sure you stop follow' } do
+          content_tag(:i, class: 'fa fa-2x fa-minus-circle fill-white m-3') do
+          end
+        end
+      elsif current_user != @user
+        go_to("/startfollow/#{@user.id}", 'fa fa-2x fa-plus-circle fill-white m-3')
+      else
+        content_tag(:i, class: 'fa fa-2x fa-check-circle fill-white m-3') do
+        end
+      end +
+      image_tag('talky.png', alt: 'userprofile', class: '') +
+      go_to(root_path, 'fa fa-2x fa-gg-circle fill-white m-3'),
+      'd-flex align-items-center justify-content-around m-auto'
+    )
+  end
+
+  private
+
+  def set_lists
+    case params[:list]
+    when '1'
+      @users = current_user.followings
+      @tag = 'FOLLOWING'
+    when '2'
+      @users = User.fans(current_user)
+      @tag = 'FOLLOWERS'
+    else
+      @users = User.all.where('id!=?', current_user.id)
+      @tag = 'ALL USERS'
+    end
+  end
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def user_params
+    params.require(:user).permit(:username, :fullname)
   end
 end

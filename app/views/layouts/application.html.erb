@@ -18,7 +18,7 @@
       <div class="col-2 w-100 left-menu">
         <!--SIDE-->
         <section class="w-100 h-100">
-        <div class="sticky-top">
+          <div class="sticky-top">
             <% if current_user?%>
               <div class="row bgc-bluer">
                 <!--CURRENT USER_NAME-->
@@ -40,7 +40,7 @@
               </div>
               <!--BUTTONS LEFT-->
               <div class="row right">
-                <%= link_to users_path, class: 'btn-left w-100' do %>
+                <%= link_to opinions_path, class: 'btn-left w-100' do %>
                   <i class="fa fa-sm fa-home fill-gray mr-2"></i><p> HOME</p>
                 <% end %>
                 <%= link_to "/follow/2", class: 'btn-left w-100' do %>
@@ -54,7 +54,7 @@
                 <% end %>
               </div>
             <% end %>
-        </div>
+          </div>
         </section>
       </div>
 

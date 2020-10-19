@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'logout' => 'user_sessions#destroy'
 
   get '/follow/:list', to: 'users#index'
+  get '/talkey/:list', to: 'opinions#index'
   get '/startfollow/:id', to: 'followings#create'
 
 end
