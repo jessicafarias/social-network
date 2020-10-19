@@ -46,7 +46,7 @@ module UsersHelper
       div(image(user_path(user), 'w-100'), 'col-3 d-flex align-items-center') +
       div(paragraph(user.fullname, '') + paragraph(user.username, ''),
           'col-6 d-flex justify-content-center flex-column') +
-          (go_to("/startfollow/#{user.id}", 'fa fa-2x fa-plus-circle fill-white m-3') if current_user != user),
+          (go_to("/startfollow/#{user.id}", 'fa fa-2x fa-plus-circle fill-white m-3') unless current_user.follow?(user)),
       'row mt-3'
     )
   end
