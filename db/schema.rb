@@ -10,33 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_201_013_180_651) do
+ActiveRecord::Schema.define(version: 2020_10_20_202820) do
+
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'followings', force: :cascade do |t|
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.bigint 'user_id'
-    t.integer 'following_id'
-    t.index ['user_id'], name: 'index_followings_on_user_id'
+  create_table "followings", force: :cascade do |t|
+    t.integer "following_id"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_followings_on_user_id"
   end
 
-  create_table 'opinions', force: :cascade do |t|
-    t.text 'body'
-    t.bigint 'user_id', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['user_id'], name: 'index_opinions_on_user_id'
+  create_table "opinions", force: :cascade do |t|
+    t.text "body"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_opinions_on_user_id"
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'username'
-    t.string 'fullname'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "fullname"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key 'followings', 'users'
-  add_foreign_key 'opinions', 'users'
+  add_foreign_key "followings", "users"
+  add_foreign_key "opinions", "users"
 end
