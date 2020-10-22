@@ -6,7 +6,7 @@ module OpinionsHelper
       @opinions.order_desc.each do |opinion|
         list_item +=
           div(
-            image(user_path(opinion.user), 'image m-4') +
+            image(user_path(opinion.user), 'image m-4', opinion.user.avatar) +
             div(
               paragraph(opinion.user.fullname, 'user') +
               paragraph(opinion.body, 'opinion'),

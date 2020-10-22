@@ -21,9 +21,9 @@
           <div class="sticky-top">
             <% if current_user?%>
               <div class="row bgc-bluer">
-                <!--CURRENT USER_NAME-->
+                <!--CURRENT USER_NAME LEFT-->
                 <div class ="d-flex justify-content-between align-items-center w-100">
-                  <%= link_to image_tag('talky.png', alt: 'Logo', class: 'img'), user_path(current_user) %>
+                  <%= image(user_path(current_user), 'img', current_user.avatar) %>
                   <p><%= current_user.fullname.upcase %></p>
                 </div>
                 <!--FOLLOWIN COUNT-->
@@ -65,7 +65,7 @@
             <div class="col-12">
               <div class= "d-flex justify-content-between align-items-center">
                 <div class = "m-2">
-                  <%= link_to image_tag('talkyw.png', alt: 'Logo', class: 'icon'), users_path %>
+                <%= image(users_path, 'icon' , 'talkyw.png') %>
                 </div>
                 <% if current_user?%>
                 <div class="">

@@ -11,8 +11,9 @@ module UsersHelper
     end
   end
 
-  def image(link_path, class_img)
-    link_to image_tag('talky.png', alt: 'talkeyuser', class: class_img), link_path
+
+  def image(link_path, class_img, image)
+    link_to image_tag(image, alt: 'profle', class: class_img), link_path
   end
 
   def go_to(link_path, class_icon)
@@ -29,7 +30,7 @@ module UsersHelper
       @users.each do |user|
         list_item +=
           div(
-            image(user_path(user), 'image m-4') +
+            image(user_path(user), 'image m-4', user.avatar) +
             div(
               paragraph(user.fullname, 'user') +
               (paragraph(user.opinions.last.body, 'opinion') if user.opinions.any?),
@@ -43,7 +44,7 @@ module UsersHelper
 
   def follow(user)
     div(
-      div(image(user_path(user), 'w-100'), 'col-3 d-flex align-items-center') +
+      div(image(user_path(user), 'w-100', user.avatar), 'col-3 d-flex align-items-center') +
       div(paragraph(user.fullname, '') + paragraph(user.username, ''),
           'col-6 d-flex justify-content-center flex-column') +
           (
@@ -78,7 +79,7 @@ module UsersHelper
         content_tag(:i, class: 'fa fa-2x fa-check-circle fill-white m-3') do
         end
       end +
-      image_tag('talky.png', alt: 'userprofile', class: '') +
+      image('','w-100', @user.avatar)+
       go_to(root_path, 'fa fa-2x fa-gg-circle fill-white m-3'),
       'd-flex align-items-center justify-content-around m-auto'
     )
@@ -105,6 +106,6 @@ module UsersHelper
   end
 
   def user_params
-    params.require(:user).permit(:username, :fullname)
+    params.require(:user).permit(:username, :fullname, :avatar, :cover_image)
   end
 end
