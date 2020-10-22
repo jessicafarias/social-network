@@ -1,15 +1,10 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the UserSessionsHelper. For example:
-#
-# describe UserSessionsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe UserSessionsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context '#Associations' do
+    it 'Following belongs to user' do
+      association = Following.reflect_on_association(:user)
+      expect(association.macro).to eq(:belongs_to)
+    end
+  end
 end

@@ -89,13 +89,13 @@ module UsersHelper
   def set_lists
     case params[:list]
     when '1'
-      @users = current_user.followings
+      @users = current_user.followings.includes([:opinions])
       @tag = 'FOLLOWING'
     when '2'
-      @users = User.fans(current_user)
+      @users = User.fans(current_user).includes([:opinions])
       @tag = 'FOLLOWERS'
     else
-      @users = User.all.where('id!=?', current_user.id)
+      @users = User.all.where('id!=?', current_user.id).includes([:opinions])
       @tag = 'ALL USERS'
     end
   end

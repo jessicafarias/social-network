@@ -9,7 +9,7 @@ This Project is an app built using Ruby on Rails basic functionalities of a soci
 
 ## Live Demo on Heroku
 
-[Talkhey](https://https://talkhey.herokuapp.com/)
+[Talkhey](https://talkhey.herokuapp.com/login)
 
 
 ## Getting Started

@@ -6,9 +6,13 @@ RSpec.describe User, type: :model do
       association = User.reflect_on_association(:followings)
       expect(association.macro).to eq(:has_many)
     end
-    it 'User has_many followers' do
-      association = User.reflect_on_association(:followings)
-      expect(association.foreign_key).to eq('user_id')
+    it 'User has_many followings' do
+      association = User.reflect_on_association(:relationship)
+      expect(association.macro).to eq(:has_many)
+    end
+    it 'User has_many opinions' do
+      association = User.reflect_on_association(:opinions)
+      expect(association.macro).to eq(:has_many)
     end
   end
   context '#Validations' do

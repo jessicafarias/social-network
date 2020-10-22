@@ -1,6 +1,5 @@
 class OpinionsController < ApplicationController
   include OpinionsHelper
-  include UserSessionsHelper
   before_action :authenticate_user!
   before_action :set_opinion, only: %i[show edit update destroy]
 
