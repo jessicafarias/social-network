@@ -21,18 +21,18 @@ module OpinionsHelper
   def set_lists
     case params[:list]
     when '1'
-      @opinions = current_user.opinions
+      @opinions = current_user.opinions.includes([:user])
       @ids = User.fans(current_user).select(:id)
-      @opinions = Opinion.all.order_desc.where(user_id: @ids)
+      @opinions = Opinion.all.order_desc.where(user_id: @ids).includes([:user])
       @tag = 'OPINIONS FROM FOLLOWERS'
 
     when '2'
-      @ids = current_user.followings.select(:id)
-      @opinions = Opinion.all.order_desc.where(user_id: @ids)
+      @ids = current_user.followings.select(:id).includes([:opinions])
+      @opinions = Opinion.all.order_desc.where(user_id: @ids).includes([:user])
       @tag = 'OPINIONS FROM PEOPLE WHO YOU ARE FOLLOWING'
 
     else
-      @opinions = Opinion.all
+      @opinions = Opinion.all.includes([:user])
       @tag = 'ALL OPINIONS FROM ALL USERS'
     end
   end

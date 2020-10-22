@@ -92,7 +92,7 @@ module UsersHelper
       @users = current_user.followings.includes([:opinions])
       @tag = 'FOLLOWING'
     when '2'
-      @users = User.fans(current_user).includes([:opinions])
+      @users = User.fans(current_user)
       @tag = 'FOLLOWERS'
     else
       @users = User.all.where('id!=?', current_user.id).includes([:opinions])

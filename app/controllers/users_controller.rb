@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def show
     @opinion = Opinion.new
     @whotofollow = User.fans(@user)
-    @opinions = @user.opinions.order_desc
+    @opinions = @user.opinions.order_desc.includes([:user])
   end
 
   def new
