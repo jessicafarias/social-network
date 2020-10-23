@@ -14,9 +14,6 @@ RSpec.describe Opinion, type: :model do
     end
   end
   context '#Validations' do
-    it 'Opinion valid with some text' do
-      expect(user.opinions.build(body: 'body text')).to be_valid
-    end
     it 'Opinion invalid due empty body' do
       expect(user.opinions.build(body: '')).to_not be_valid
     end
