@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <!--PEOPLE-->
+    <div class="col-9">
+
+      <!--MENU GOTO WHITE-->
+      <%= display_goto_menu %>
+
+      <!--TWEETS-->
+      <div class="row">
+        <div class="col-12">
+          <%= render 'talk', opinion: @opinion %>
+        </div>
+      </div>
+      <div class="row">
+        <div class= "col-12">   
+          <%= display_userlist %>      
+        </div>
+      </div>
+    </div>
+
+    <!--FOLLOWED BY-->
+    <div class="col-3">
+      <div class="row mt-4">
+        <p>WHO TO FOLLOW</p>
+      </div>
+      <%= whotofollow %>
+    </div>
+  </div>
+</div>

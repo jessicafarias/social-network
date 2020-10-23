@@ -1,0 +1,69 @@
+<div class="container-fluid">
+  <div class="row">
+    <!--IMAGES AND TWEETS-->
+    <div class="col-9">
+      <!--IMAGES-->
+      <div class="row">
+        <div class="portada ">
+          <%= image_tag(@user.cover_image, alt: 'catrina1', class: 'cover w-100') %>
+        </div>
+      </div>
+      <!--MENU GOTO WHITE-->
+      <div class="row">
+        <%= display_goto_menu %>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <%= render 'talk', opinion: @opinion %>
+        </div>
+      </div>
+      <!--OPINIONS TALKEYS-->
+      <div class="row">
+        <div class= "col-12">   
+          <%= display_opinions %>      
+        </div>
+      </div>
+    </div>
+    <!--FOLLOWED BY-->
+    <div class="col-3">
+      <section class="w-100 h-100">
+        <div class="sticky-top z-fix">
+          <div class="col-12">
+            <!-- PROFILE CHANGE PICTURE-->
+            <div class="row right mt-4">
+              <%= display_user_show %>
+            </div>
+            <!--USERNAME DATA-->
+            <div class="row mt-4">
+              <div class="d-flex flex-column align-items-center m-auto">
+                <p><%= @user.fullname %></p>
+                <p><%= @user.username %></p>
+              </div>
+            </div>
+            <!--PROFILE COUNT FOLLOWERS-->
+            <div class="row mt-4">
+              <div class="col-4">
+                <p><%= @user.opinions.count %></p>
+                <p>Talkeys</p>
+              </div>
+              <div class="col-4">
+                <p><%= User.fans(@user).count %></p>
+                <p>followers</p>
+              </div>
+              <div class="col-4">
+                <p><%= @user.followings.count %></p>
+                <p>Following</p>
+              </div>
+            </div>
+            <!--FOLLOWEB BY TAG-->
+            <div class="row mt-4">
+              <p>FOLLOWED BY</p>
+            </div>
+            <!--FOLLOWED BY OTHER-->
+            <%= whotofollow %>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
