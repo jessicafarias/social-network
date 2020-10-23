@@ -6,7 +6,7 @@ class OpinionsController < ApplicationController
   def index
     set_lists
     @opinion = Opinion.new
-    @whotofollow = User.who_to_follow(current_user)
+    @whotofollow = User.with_attached_avatar.who_to_follow(current_user)
   end
 
   def show

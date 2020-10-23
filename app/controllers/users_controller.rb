@@ -5,13 +5,13 @@ class UsersController < ApplicationController
 
   def index
     @opinion = Opinion.new
-    @whotofollow = User.who_to_follow(current_user)
+    @whotofollow = User.with_attached_avatar.who_to_follow(current_user)
     set_lists
   end
 
   def show
     @opinion = Opinion.new
-    @whotofollow = User.fans(@user)
+    @whotofollow = User.with_attached_avatar.fans(@user)
     @opinions = @user.opinions.order_desc.includes([:user])
   end
 

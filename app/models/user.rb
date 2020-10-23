@@ -8,12 +8,10 @@ class User < ApplicationRecord
   has_many :relationship, class_name: 'Following', foreign_key: 'user_id', dependent: :destroy
   has_many :followings, through: :relationship
 
-  scope :fans, ->(user) { joins(:relationship).where('following_id=?', user.id).includes([avatar_attachment: :blob]) }
+  scope :fans, ->(user) { joins(:relationship).where('following_id=?', user.id) }
   scope :who_to_follow, lambda { |user|
-                          where('id != ?', user.id)
-                            .includes([avatar_attachment: :blob]) - user.followings.includes([avatar_attachment: :blob])
-                        }
-  scope :order_desc, -> { order(created_at: :desc).includes([avatar_attachment: :blob]) }
+                          where('id != ?', user.id) - user.followings}
+  scope :order_desc, -> { order(created_at: :desc) }
 
   scope :with_attached_avatar, -> { includes(avatar_attachment: :blob) }
 

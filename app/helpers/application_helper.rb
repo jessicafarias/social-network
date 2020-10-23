@@ -25,4 +25,56 @@ module ApplicationHelper
         end
     end
   end
+
+  def menu_bluer
+    div(
+      div(
+        image(user_path(current_user), 'img', current_user.avatar) +
+        paragraph(current_user.fullname.upcase, 'head'),
+        'd-flex justify-content-between align-items-center w-100') +
+      div(
+        div(
+          paragraph(current_user.followings.count.to_s, '') +
+          paragraph('Following', ''),
+          'd-flex flex-column align-items-center') +
+        div(
+          paragraph(User.fans(current_user).count.to_s, '') +
+          paragraph('Followers', ''),
+          'd-flex flex-column align-items-center'),
+        'row d-flex justify-content-around align-items-center mt-4 w-100'),
+      'row bgc-bluer')
+  end
+
+  def nav_white
+    div(
+      link('HOME',opinions_path, 'fa fa-sm fa-home fill-gray mr-2', 'btn-left w-100') +
+      link('FOLLOWERS','/follow/2', 'fa fa-sm fa-at fill-gray mr-2', 'btn-left w-100') +
+      link('FOLLOWING','/follow/1', 'fa fa-sm fa-hashtag fill-gray mr-2', 'btn-left w-100') +
+      link('PROFILE',user_path(current_user), 'fa fa-sm fa-user fill-gray mr-2', 'btn-left w-100'),
+      'row right')
+
+  end
+
+  def link(text, link_path, class_icon, class_link)
+    link_to link_path, class: class_link do
+      content_tag(:i, class: class_icon) do
+      end + paragraph(text,'')
+    end
+  end
+
+  def application_display
+    if current_user?
+      menu_bluer + nav_white
+    end
+  end
+
+  def display_icons_nav
+    if current_user?
+      div(
+        link('', new_opinion_path, 'fa fa-sm fa-pencil fill-blue', 'level-item mr-5') +
+        link('', users_path, 'fa fa-sm fa-search fill-blue', 'level-item mr-5') +
+        link('', logout_path, 'fa fa-sm fa-sign-out fill-blue', 'level-item mr-2'),
+        'd-flex d-row')
+    end
+  end
 end

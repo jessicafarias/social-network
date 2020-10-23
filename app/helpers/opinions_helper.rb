@@ -22,7 +22,7 @@ module OpinionsHelper
     case params[:list]
     when '1'
       @opinions = current_user.opinions.includes([:user])
-      @ids = User.fans(current_user).select(:id)
+      @ids = User.with_attached_avatar.fans(current_user).select(:id)
       @opinions = Opinion.all.order_desc.where(user_id: @ids).includes([:user])
       @tag = 'OPINIONS FROM FOLLOWERS'
 
