@@ -1,0 +1,66 @@
+
+p {
+  display: flex;
+  align-items: center;
+}
+
+.link-blue {
+  color: rgb(29, 161, 242);
+}
+
+.btn-blue {
+  color: white;
+  background-color: #1a91da;
+  border: none;
+  width: 100%;
+  border-radius: 9999px;
+  min-height: 50px;
+}
+
+input[type=text] {
+  color: black;
+  background-color: #e8f0fe;
+  border: none;
+  border-bottom: thick;
+  width: 100%;
+  margin-bottom: 30px;
+  min-height: 40px;
+}
+
+input[type=password] {
+  color: black;
+  background-color: #e8f0fe;
+  border: none;
+  border-bottom: thick;
+  width: 100%;
+  margin-bottom: 10px;
+  min-height: 40px;
+}
+
+.font-lg {
+  font-size: 30px;
+}
+
+.font-md {
+  font-size: 20px;
+}
+
+.font-ch {
+  font-size: 12px;
+}
+
+.center {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.bgc-yellow {
+  background-color: yellow;
+}
+
+.bgc-red {
+  background-color: red;
+}

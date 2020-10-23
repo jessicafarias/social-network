@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SocialNetwork</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="container-fluid">
+  <div class="row">
+    <div class="col-12 p-0 m-0">
+      <%= display_propper_flash %>
+    </div>
+  </div>
+    <div class="row">  
+      <div class="col-2 w-100 left-menu">
+        <!--SIDE-->
+        <section class="w-100 h-100">
+          <div class="sticky-top">
+            <%= application_display %>
+          </div>
+        </section>
+      </div>
+
+      <!--BLUE NAVBAR AND CONTENT-->
+      <div class="col-10 w-100 p-0"> 
+      <!--NAVBAR BLUE-->
+          <nav class="row nav">
+            <div class="col-12">
+              <div class= "d-flex justify-content-between align-items-center">
+                <div class = "m-2">
+                <%= image(users_path, 'icon' , 'talkyw.png') %>
+                </div>
+                  <%= display_icons_nav %>
+              </div>
+        
+            </div>
+          </nav>
+
+
+          <!--CONTENT-->
+          <div class="col-12">
+            <section class="row">
+              <%= yield %>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <footer class="row">
+    <div class="col-12 mt-4">
+      <div class="d-flex flex-column align-items-center">
+        <%= link_to image_tag('talky.png', alt: 'Logo', class: 'img'), users_path %> <br>
+        <p class="title"> Talkey social media</p><br>
+        <p class="subtitle"> Published: 12 de octubre del 2020</p><br>
+        <p>Ing. Jessica Michelle farías rosado</p>
+      </div>
+    </div>
+    </footer>
+  </body>
+</html>

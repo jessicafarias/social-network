@@ -1,0 +1,109 @@
+$blue : rgb(35, 110, 172);
+
+.portada {
+  height: 40vh;
+  width: 100%;
+  margin: 0;
+}
+
+.cover {
+  object-fit: cover;
+  object-position: center center;
+  max-height: 40vh;
+  margin: 0;
+  width: 100%;
+}
+
+.goto {
+  display: flex;
+  flex-direction: row;
+  border-bottom: medium solid rgba(35, 110, 172, 0);
+
+  .link {
+    padding: 20px;
+    color: gray;
+  }
+
+  .link:hover {
+    color: black;
+    text-decoration: none;
+  }
+
+  a {
+    height: 100%;
+    border-bottom: medium solid rgba(35, 110, 172, 0);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    border-bottom: medium solid $blue;
+  }
+}
+
+.right {
+  .fill-white {
+    color: gray;
+  }
+
+  .fill-white:hover {
+    color: $blue;
+  }
+}
+
+.talk {
+  background-color: white;
+  margin: 1em;
+  border: thin solid rgba(172, 172, 172, 0.452);
+  border-radius: 10px;
+
+  .head {
+    padding: 10px;
+    margin: 10px;
+    color: $blue;
+    font-size: 15px;
+    border-bottom: thin solid rgba(172, 172, 172, 0.452);
+  }
+
+  .user {
+    font-size: 20px;
+    font-weight: bold;
+    cursor: default;
+  }
+
+  .opinion {
+    font-size: 16px;
+    color: grey;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 100;
+    cursor: default;
+  }
+}
+
+textarea {
+  width: 100%;
+  border-color: rgb(197, 194, 194);
+  padding: 10px;
+}
+
+.z-fix {
+  z-index: 2;
+  top: 80px;
+  margin-bottom: 100px;
+}
+
+.image {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.profile {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center center;
+}
