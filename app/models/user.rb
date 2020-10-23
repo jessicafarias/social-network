@@ -10,7 +10,8 @@ class User < ApplicationRecord
 
   scope :fans, ->(user) { joins(:relationship).where('following_id=?', user.id) }
   scope :who_to_follow, lambda { |user|
-                          where('id != ?', user.id) - user.followings}
+                          where('id != ?', user.id) - user.followings
+                        }
   scope :order_desc, -> { order(created_at: :desc) }
 
   scope :with_attached_avatar, -> { includes(avatar_attachment: :blob) }
