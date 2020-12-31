@@ -6,23 +6,28 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>Talkhey</title>
     <meta name="twitter:card" value="summary"/>
     <meta property="og:image" content="http://i6.tagstat.com/p1/0/4nY5gwDZZhVm3HqGo91PButn0lVAHnT1s9-6m365d9KVxC5x8b7ckh-ZYABvOzTe.jpg" />
     <meta property="og:title" content="Talkhey"/>
     <meta property="og:description" content="This Project is an app built using Ruby on Rails basic functionalities of a social network similar to Twitter but using a different interface." />
     <meta property="og:url" content="" />
+
+
   
   </head>
 
-  <body class="container-fluid">
-  <div class="row">
-    <div class="col-12 p-0 m-0">
-      <%= display_propper_flash %>
+  <body class="">
+    <!--FLASH-->
+    <div class="row">
+      <div class="col-12">
+        <%= display_propper_flash %>
+      </div>
     </div>
-  </div>
+
     <div class="row">  
-      <div class="col-2 w-100 left-menu">
+      <div class="col-lg-2 col-md-3 w-100 left-menu d-none d-md-block">
         <!--SIDE-->
         <section class="w-100 h-100">
           <div class="sticky-top">
@@ -32,17 +37,16 @@
       </div>
 
       <!--BLUE NAVBAR AND CONTENT-->
-      <div class="col-10 w-100 p-0"> 
-      <!--NAVBAR BLUE-->
+      <div class="col-lg-10 col-md-9 col-sm-12 w-100"> 
+          <!--NAVBAR BLUE-->
           <nav class="row nav">
-            <div class="col-12">
-              <div class= "d-flex justify-content-between align-items-center">
-                <div class = "m-2">
-                <%= image(users_path, 'icon' , 'talkyw.png') %>
+            <div class="col-12 w-100">
+              <div class= "d-flex align-items-center justify-content-between">
+                <div class = "p-2">
+                  <%= image(users_path, 'icon' , 'talkyw.png') %>
                 </div>
-                  <%= display_icons_nav %>
+                <%= display_icons_nav %>
               </div>
-        
             </div>
           </nav>
 
@@ -57,16 +61,15 @@
       </div>
     </div>
 
-
-    <footer class="row">
-    <div class="col-12 mt-4">
-      <div class="d-flex flex-column align-items-center">
-        <%= link_to image_tag('talky.png', alt: 'Logo', class: 'img'), users_path %> <br>
-        <p class="title"> Talkey social media</p><br>
-        <p class="subtitle"> Published: 12 de octubre del 2020</p><br>
-        <p>Ing. Jessica Michelle farías rosado</p>
+    <footer class="row pt-5">
+      <div class="col-12 mt-4 pt-5">
+        <div class="d-flex flex-column align-items-center">
+          <%= link_to image_tag('talky.png', alt: 'Logo', class: 'img'), users_path %> <br>
+          <p class="title"> Talkey social media</p><br>
+          <p class="subtitle"> Published: 12 de octubre del 2020</p><br>
+          <p>Ing. Jessica Michelle farías rosado</p>
+        </div>
       </div>
-    </div>
     </footer>
   </body>
 </html>

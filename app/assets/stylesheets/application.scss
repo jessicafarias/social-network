@@ -18,10 +18,14 @@
 @import "fonts";
 @import "users";
 
+html{
+  overflow-x: hidden;
+}
 body {
   font-family: 'YuFont', Arial, Helvetica, sans-serif;
   font-weight: bold;
   background-color: #f4f5f7;
+  width: 100%;
 }
 
 .left-menu {
