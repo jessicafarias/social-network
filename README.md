@@ -1,6 +1,6 @@
 # Talkey for social media app with Ruby on Rails
 
-This Project is an app built using Ruby on Rails basic functionalities of a social network similar to Twitter but using a different interface.
+This Project is an app built using Ruby on Rails. It has the basic functionalities of a social network similar to Twitter, but uses a different interface
 
 ## Built With
 
