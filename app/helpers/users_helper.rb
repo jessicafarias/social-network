@@ -78,9 +78,9 @@ module UsersHelper
         content_tag(:i, class: 'fa fa-2x fa-check-circle fill-white p-3') do
         end
       end +
-      image('', 'w-100 profile', @user.avatar) +
+      image('', 'profile', @user.avatar) +
       go_to(root_path, 'fa fa-2x fa-gg-circle fill-white p-3'),
-      'd-flex align-items-center justify-content-around p-auto'
+      'd-flex align-items-center justify-content-center m-auto'
     )
   end
 

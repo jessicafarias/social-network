@@ -91,6 +91,10 @@ textarea {
 .image {
   width: 40px;
   height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  max-width: 50px;
+  max-height: 50px;
   border-radius: 20px;
   object-fit: cover;
   object-position: center center;
@@ -99,7 +103,10 @@ textarea {
 .profile {
   width: 130px;
   height: 130px;
+  min-width: 130px;
+  min-height: 130px;
   border-radius: 50%;
   object-fit: cover;
+  margin-top: 20px;
   object-position: center center;
 }

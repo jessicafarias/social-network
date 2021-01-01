@@ -36,6 +36,8 @@ body {
   .img {
     width: 60px;
     height: 60px;
+    max-width: 70px;
+    max-height: 70px;
     border-radius: 50%;
     object-fit: cover;
     object-position: center center;
@@ -118,5 +120,7 @@ footer {
   .images {
     max-width: 100px;
     min-width: 50px;
+    max-height: 100px;
+    min-height: 50px;
   }
 }
