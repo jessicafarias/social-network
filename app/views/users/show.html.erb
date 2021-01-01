@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <!--IMAGES AND TWEETS-->
-    <div class="col-9">
+    <div class="col-lg-9 col-md-12 col-sm-12 order-sm-0 order-1">
       <!--IMAGES-->
       <div class="row">
         <div class="portada ">
@@ -12,20 +12,20 @@
       <div class="row">
         <%= display_goto_menu %>
       </div>
-      <div class="row">
+      <div class="row mt-2">
         <div class="col-12">
           <%= render 'talk', opinion: @opinion %>
         </div>
       </div>
       <!--OPINIONS TALKEYS-->
-      <div class="row">
+      <div class="row mt-2 mb-2">
         <div class= "col-12">   
           <%= display_opinions %>      
         </div>
       </div>
     </div>
     <!--FOLLOWED BY-->
-    <div class="col-3">
+    <div class="col-lg-3 col-md-12 col-sm-12  order-sm-1 order-0">
       <section class="w-100 h-100">
         <div class="sticky-top z-fix">
           <div class="col-12">

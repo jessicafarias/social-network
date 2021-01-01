@@ -1,19 +1,19 @@
 <div class="container-fluid">
-  <div class="row">
+  <div class="row mt-2">
 
     <!--PEOPLE-->
-    <div class="col-9">
+    <div class="col-lg-9 col-md-12 col-sm-12">
 
       <!--MENU GOTO WHITE-->
       <%= display_goto_menu %>
 
       <!--TWEETS-->
-      <div class="row">
+      <div class="row mt-2">
         <div class="col-12">
           <%= render 'talk', opinion: @opinion %>
         </div>
       </div>
-      <div class="row">
+      <div class="row mt-4">
         <div class= "col-12">   
           <%= display_userlist %>      
         </div>
@@ -21,9 +21,9 @@
     </div>
 
     <!--FOLLOWED BY-->
-    <div class="col-3">
-      <div class="row mt-4">
-        <p>WHO TO FOLLOW</p>
+    <div class="col-lg-3 col-md-12 col-sm-12 ">
+      <div class="row pt-4">
+        <p class="m-auto">WHO TO FOLLOW</p>
       </div>
       <%= whotofollow %>
     </div>
