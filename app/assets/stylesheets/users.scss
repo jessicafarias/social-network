@@ -15,12 +15,9 @@ $blue : rgb(35, 110, 172);
 }
 
 .goto {
-  display: flex;
-  flex-direction: row;
   border-bottom: medium solid rgba(35, 110, 172, 0);
 
   .link {
-    padding: 20px;
     color: gray;
   }
 
@@ -31,6 +28,7 @@ $blue : rgb(35, 110, 172);
 
   a {
     height: 100%;
+    padding: 20px;
     border-bottom: medium solid rgba(35, 110, 172, 0);
     cursor: pointer;
     text-decoration: none;

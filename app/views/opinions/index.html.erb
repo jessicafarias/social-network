@@ -1,20 +1,20 @@
 <div class="container-fluid">
   <div class="row">
     <!--PEOPLE-->
-    <div class="col-9">
+    <div class="col-lg-9 col-md-12 col-sm-12">
       <!--MENU GOTO WHITE-->
       <div class="row">
         <div class="portada ">
-          <%= image('', 'cover w-100', current_user.cover_image ) %>
+          <%= image('', 'cover w-100 h-100', current_user.cover_image ) %>
         </div>
       </div>
       
-      <div class="row">
+      <div class="row m-auto">
         <%= display_goto_menu %>
       </div>
       
       <!--TWEETS-->
-      <div class="row">
+      <div class="row mt-2">
         <% if current_user? %>
           <div class="col-12">
             <%= render 'talk', opinion: @opinion %>
@@ -22,17 +22,17 @@
         <% end %>
       </div>
 
-      <div class="row">
+      <div class="row mt-2">
         <div class= "col-12">
             <%= display_opinions %>  
         </div>
       </div>
     </div>
     <!--FOLLOWED BY-->
-    <div class="col-3">
+    <div class="col-lg-3 col-md-12 col-sm-12 ">
       <!--WHO TO FOLLOW TAG-->
-      <div class="row mt-4">
-        <p>WHO TO FOLLOW</p>
+      <div class="row pt-4">
+        <p class="m-auto">WHO TO FOLLOW</p>
       </div>
       <!--FOLLOWEB PROFILE-->
       <%= whotofollow %>

@@ -49,12 +49,12 @@ module UsersHelper
           (
             go_to("/startfollow/#{user.id}", 'fa fa-2x fa-plus-circle fill-white m-3') unless current_user.follow?(user)
           ),
-      'row mt-3'
+      'row m-auto p-2'
     )
   end
 
   def whotofollow
-    list_item = content_tag(:div, class: '') do
+    list_item = content_tag(:div, class: 'm-auto') do
     end
     if @whotofollow.any?
       @whotofollow.each do |user|
@@ -69,18 +69,18 @@ module UsersHelper
       if current_user.follow?(@user) && current_user != @user
         link_to following_path(current_user.stop_to_follow(@user)),
                 method: :delete, data: { confirm: 'Are you sure you stop follow' } do
-          content_tag(:i, class: 'fa fa-2x fa-minus-circle fill-white m-3') do
+          content_tag(:i, class: 'fa fa-2x fa-minus-circle fill-white p-3') do
           end
         end
       elsif current_user != @user
-        go_to("/startfollow/#{@user.id}", 'fa fa-2x fa-plus-circle fill-white m-3')
+        go_to("/startfollow/#{@user.id}", 'fa fa-2x fa-plus-circle fill-white p-3')
       else
-        content_tag(:i, class: 'fa fa-2x fa-check-circle fill-white m-3') do
+        content_tag(:i, class: 'fa fa-2x fa-check-circle fill-white p-3') do
         end
       end +
       image('', 'w-100 profile', @user.avatar) +
-      go_to(root_path, 'fa fa-2x fa-gg-circle fill-white m-3'),
-      'd-flex align-items-center justify-content-around m-auto'
+      go_to(root_path, 'fa fa-2x fa-gg-circle fill-white p-3'),
+      'd-flex align-items-center justify-content-around p-auto'
     )
   end
 

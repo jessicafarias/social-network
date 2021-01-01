@@ -10,7 +10,7 @@ module ApplicationHelper
   end
 
   def display_goto_menu
-    content_tag(:ul, class: 'goto m-3') do
+    content_tag(:ul, class: 'goto p-4 d-none d-xs-none d-lg-flex flex-row') do
       content_tag(:li, class: '') do
         link_to 'TALKEYS', user_path(current_user), class: 'link'
       end +
