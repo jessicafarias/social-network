@@ -44,7 +44,7 @@ module ApplicationHelper
           paragraph('Followers', ''),
           'd-flex flex-column align-items-center'
         ),
-        'row d-flex justify-content-around align-items-center mt-4 w-100'
+        'row d-flex justify-content-around align-items-center pt-4 w-100 m-auto'
       ),
       'row bgc-bluer'
     )

@@ -51,13 +51,12 @@ module UsersHelper
 
   def follow(user)
     div(
-      div(cloud(user_path(user), 'w-100 image', user.avatar), 'col-3 d-flex align-items-center') +
-      div(paragraph(user.fullname, '') + paragraph(user.username, ''),
-          'col-6 d-flex justify-content-center flex-column') +
-          (
-            go_to("/startfollow/#{user.id}", 'fa fa-2x fa-plus-circle fill-white m-3') unless current_user.follow?(user)
-          ),
-      'row m-auto p-2'
+      div(cloud(user_path(user), 'image', user.avatar), 'col-3 d-flex align-items-center') +
+      div(paragraph(user.fullname, '') + paragraph(user.username, ''),'col-6 d-flex justify-content-center flex-column') +
+      (
+        go_to("/startfollow/#{user.id}", 'fa fa-2x fa-plus-circle fill-white col-3 mt-2') unless current_user.follow?(user)
+      ),
+      'row m-auto d-flex flex-nowrap'
     )
   end
 
