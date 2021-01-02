@@ -29,6 +29,10 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'bootstrap', '~> 4.5', '>= 4.5.2'
+
+#cloudinary
+gem 'carrierwave'
+gem 'cloudinary'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 
 group :development, :test do

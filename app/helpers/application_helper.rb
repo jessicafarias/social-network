@@ -29,7 +29,7 @@ module ApplicationHelper
   def menu_bluer
     div(
       div(
-        image(user_path(current_user), 'img', current_user.avatar) +
+        cloud(user_path(current_user), 'img', current_user.avatar) +
         paragraph(current_user.fullname.upcase, 'head'),
         'd-flex justify-content-between align-items-center w-100'
       ) +

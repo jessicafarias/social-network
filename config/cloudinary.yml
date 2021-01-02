@@ -1,0 +1,18 @@
+development:
+  cloud_name: 'jessicafarias'
+  api_key: '373214746693679'
+  api_secret: '0YlbHjdu0X89cwXB-NexIOkzpL0'
+  secure: true
+  cdn_subdomain: true
+production:
+  cloud_name: 'jessicafarias'
+  api_key: '373214746693679'
+  api_secret: '0YlbHjdu0X89cwXB-NexIOkzpL0'
+  secure: true
+  cdn_subdomain: true
+test:
+  cloud_name: 'jessicafarias'
+  api_key: '373214746693679'
+  api_secret: '0YlbHjdu0X89cwXB-NexIOkzpL0'
+  secure: true
+  cdn_subdomain: true

@@ -9,11 +9,11 @@
   <% end %>
   <div class="field">
     <%= form.label :avatar %>
-    <%= form.file_field :avatar %>
+    <%= form.file_field :avatar, direct_upload: true %>
   </div>
     <div class="field">
     <%= form.label :cover_image %>
-    <%= form.file_field :cover_image %>
+    <%= form.file_field :cover_image, direct_upload: true %>
   </div>
 
   <div class="field">

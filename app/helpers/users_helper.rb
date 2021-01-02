@@ -15,6 +15,14 @@ module UsersHelper
     link_to image_tag(image, alt: 'profle', class: class_img), link_path
   end
 
+  def cloud(link_path, class_img, user_av)
+    link_to cl_image_tag(user_av.key, secure: true, class: class_img), link_path
+  end
+
+  #def cloud_profile(link_path, class_img, user_av)
+  #  link_to cl_image_tag(user_av.key, secure: true, width: 500, height:500), link_path
+  #end
+
   def go_to(link_path, class_icon)
     link_to link_path do
       content_tag(:i, class: class_icon) do
@@ -29,7 +37,7 @@ module UsersHelper
       @users.each do |user|
         list_item +=
           div(
-            image(user_path(user), 'image m-4', user.avatar) +
+            cloud(user_path(user), 'image m-4', user.avatar) +
             div(
               paragraph(user.fullname, 'user') +
               (paragraph(user.opinions.last.body, 'opinion') if user.opinions.any?),
@@ -43,7 +51,7 @@ module UsersHelper
 
   def follow(user)
     div(
-      div(image(user_path(user), 'w-100 image', user.avatar), 'col-3 d-flex align-items-center') +
+      div(cloud(user_path(user), 'w-100 image', user.avatar), 'col-3 d-flex align-items-center') +
       div(paragraph(user.fullname, '') + paragraph(user.username, ''),
           'col-6 d-flex justify-content-center flex-column') +
           (
@@ -78,7 +86,7 @@ module UsersHelper
         content_tag(:i, class: 'fa fa-2x fa-check-circle fill-white p-3') do
         end
       end +
-      image('', 'profile', @user.avatar) +
+      cloud('', 'profile', @user.avatar) +
       go_to(root_path, 'fa fa-2x fa-gg-circle fill-white p-3'),
       'd-flex align-items-center justify-content-center m-auto'
     )
