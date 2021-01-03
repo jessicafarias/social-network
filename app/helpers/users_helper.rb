@@ -19,9 +19,9 @@ module UsersHelper
     link_to cl_image_tag(user_av.key, secure: true, class: class_img), link_path
   end
 
-  #def cloud_profile(link_path, class_img, user_av)
+  # def cloud_profile(link_path, class_img, user_av)
   #  link_to cl_image_tag(user_av.key, secure: true, width: 500, height:500), link_path
-  #end
+  # end
 
   def go_to(link_path, class_icon)
     link_to link_path do
@@ -38,11 +38,9 @@ module UsersHelper
         list_item +=
           div(
             cloud(user_path(user), 'image m-4', user.avatar) +
-            div(
-              paragraph(user.fullname, 'user') +
+            div(paragraph(user.fullname, 'user') +
               (paragraph(user.opinions.last.body, 'opinion') if user.opinions.any?),
-              'd-flex flex-column justify-content-center'
-            ), 'd-flex flex-row'
+                'd-flex flex-column justify-content-center'), 'd-flex flex-row'
           )
       end
     end
@@ -51,11 +49,14 @@ module UsersHelper
 
   def follow(user)
     div(
-      div(cloud(user_path(user), 'image', user.avatar), 'col-3 d-flex align-items-center') +
-      div(paragraph(user.fullname, '') + paragraph(user.username, ''),'col-6 d-flex justify-content-center flex-column') +
-      (
-        go_to("/startfollow/#{user.id}", 'fa fa-2x fa-plus-circle fill-white col-3 mt-2') unless current_user.follow?(user)
-      ),
+      div(cloud(user_path(user), 'image', user.avatar),
+          'col-3 d-flex align-items-center') +
+      div(paragraph(user.fullname, '') + paragraph(user.username, ''),
+          'col-6 d-flex justify-content-center flex-column') +
+      (unless current_user.follow?(user)
+         go_to("/startfollow/#{user.id}",
+               'fa fa-2x fa-plus-circle fill-white col-3 mt-2')
+       end),
       'row m-auto d-flex flex-nowrap'
     )
   end
